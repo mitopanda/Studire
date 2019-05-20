@@ -1,2 +1,29 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<div class="row">
+    <!--<p>Tags: <%#= raw(@post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')) %></p> -->
+    <div class="col-lg-8">
+      <h2><%= @post.title %></h2>
+    </div>
+    <div class="col-lg-8">
+      <h3>経歴</h3>
+      <p class="text-break"><%= @post.content %></p>
+    </div>
+    <div class="col-lg-8">
+      <h3>使用した参考書・サービス</h3>
+      <p class="text-break"><%= simple_format(@post.book) %></p>
+    </div>
+
+    <div class="col-lg-8">
+      <h3>学習方法・学習時間</h3>
+      <p class="text-break"><%= simple_format(@post.direction) %></p>
+    </div>
+    <div class="col-lg-8">
+      <h3>まとめ</h3>
+      <p class="text-break"><%= simple_format(@post.summary) %></p>
+      <% if current_user == @post.user %>
+      <%= link_to '編集', edit_post_path(@post), class: 'btn btn-primary' %>
+      <%= link_to "削除",  @post, method: :delete, data: { confirm: "You sure?" } %>
+      <% end %>
+    </div>
+
+</div>
+ 

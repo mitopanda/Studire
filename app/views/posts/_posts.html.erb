@@ -1,0 +1,17 @@
+<ul class="media-list">
+  <% posts.each do |post| %>
+    <div class="media">
+      <%= image_tag post.user.image.to_s, class: 'mr-3', :size => '50x50' %>
+      <div class="media-body">
+        <div>
+          <%= link_to post.user.name, user_path(post.user) %> <span class="text-muted">投稿日 <%= post.created_at.strftime("%Y-%m-%d %H:%M") %></span>
+        </div>
+        <div>
+          <%= link_to post.title, post_path(post) %>
+          <p>Tags: <%#= raw(post.tag_list.map { |t| link_to t, tag_path(t) }.join(' ')) %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <%= paginate posts %>
+</ul>

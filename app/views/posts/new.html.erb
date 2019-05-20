@@ -1,2 +1,46 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<div class="text-center">
+  <h1>投稿</h1>
+</div>
+
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    
+    <%= form_for(@post) do |f| %>
+      <%#= render 'layouts/error_messages', model: f.object %>
+      
+    <!-- tagフォーム -->
+    <!--<div class='field'>
+      <%#= f.label :tag_list, 'Tags (半角スペース区切り)' %><br/>
+      <%#= f.text_field :tag_list %>
+    </div>-->
+      
+    <div class="form-group" >
+      <%= f.label :title, 'タイトル' %>
+      <%= f.text_field :title, class: 'form-control' %>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label :content, '学習内容' %>
+      <%= f.text_area :content, class: 'form-control' %>
+    </div>
+    
+    <div class="form-group" >
+      <%= f.label :book, '教材' %>
+      <%= f.text_area :book, placeholder: '利用したサービスや参考書等を記入ください。',rows: "5",cols: "36", class: "form-control" %>
+    </div>
+    
+    <div class="form-group" >
+      <%= f.label :direction, '学習方法' %>
+      <%= f.text_area :direction, placeholder: '具体的な学習方法や学習時間等をご記入ください。',rows: "5",cols: "36", class: "form-control" %>
+    </div>
+
+    <div class="form-group" >
+      <%= f.label :summary, 'まとめ' %>
+      <%= f.text_area :summary, placeholder: 'まとめや最後に伝えたいことをご記入ください。',rows: "5",cols: "36", class: "form-control" %>
+    </div>
+    
+     <%= f.submit '投稿', class: 'btn btn-primary btn-block' %>
+  <% end %>
+    
+  </div>
+</div>
