@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :trackable, :omniauthable, omniauth_providers: [:twitter]
 
   has_many :posts
+  has_many :comments
 
   # relationships
   has_many :relationships
