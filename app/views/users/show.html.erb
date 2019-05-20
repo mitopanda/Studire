@@ -1,2 +1,20 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+ <div class="row"> 
+  <div class="card col-xs-4" style="width: 18rem;">
+    <%= image_tag @user.image.to_s, class: 'card-img-top' %>
+    <div class="card-body">
+      <h5 class="card-title"><%= @user.name %></h5>
+      <p class="card-text"><%= @user.profile %></p>
+      <%# <%= render 'relationships/follow_button', user: @user %> 
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8">
+      <ul class="nav justify-content-center">
+          <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+      </ul>
+      <%# <%= render 'posts/posts', posts: @posts %> 
+    </div>
+  </div>
+</div>
