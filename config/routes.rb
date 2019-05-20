@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   root to: "home#index"
 
+  # devise
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
     :sessions => 'users/sessions',
@@ -15,6 +16,17 @@ Rails.application.routes.draw do
     get "sign_out", :to => "users/sessions#destroy" 
   end
 
-  resources :users, only: [:show]
-  resources :posts
+  resources :users, only: [:show] do
+    member do
+      get :followings
+      get :followers
+    end
+  end
+  resources :posts do
+      # コメント機能　destroy追加予定
+    resources :comments, only: [:create]
+  end
+  # フォロー機能
+  resources :relationships, only: [:create, :destroy]
+
 end
