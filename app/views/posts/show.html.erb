@@ -25,5 +25,31 @@
       <% end %>
     </div>
 
-</div>
+  <div class="col-md-8">
+    <div class="media">
+      <% @comments.each do |comment| %>
+            <!--<a href="#" class="mr-3">
+            <img src="..." alt="メディアの画像">
+            </a>-->
+          
+      <div class="media-body">
+        <h5 class="mt-0"><%= comment.user.name %></h5>
+          <%= comment.content %>
+          <% end %>
+      </div><!-- /.media-body -->
+    </div><!-- /.media -->
+  </div>
+ </div>
+
+  <%# <div class="row">
+    <div class="col-lg-8">
+      <%= render 'comments/comments' %>
+    <!--</div>
+  </div> -->
+  <div class="form-group">
+    <%= form_for [@post, @comment] do |f| %>
+        <%= f.text_area :content, class: 'form-control', rows: '5' %>
+        <%= f.submit 'コメントする', class: 'btn btn-primary btn-block' %>
+    <% end %>
+  </div>
  

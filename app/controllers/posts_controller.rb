@@ -4,8 +4,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    # @comments = @post.comments.all
-    # @comment = current_user.comments.build
+    @comments = @post.comments.all
+    @comment = current_user.comments.build
   end
 
   def new

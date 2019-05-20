@@ -4,10 +4,10 @@ class CommentsController < ApplicationController
     @comment = current_user.comments.build(comment_params)
     @comment.post_id = params[:post_id]
     if @comment.save
-      flash[:success] = 'コメントの投稿に成功しました。'
+      flash[:notice] = 'コメントの投稿に成功しました。'
       redirect_back(fallback_location: root_path)
     else
-      flash.now[:danger] = 'コメントの投稿に成功しました。'
+      flash.now[:danger] = 'コメントの投稿に失敗しました。'
       redirect_back(fallback_location: root_path)
     end
   end
