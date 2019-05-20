@@ -1,2 +1,14 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<% if user_signed_in? %>
+  <div class="row">
+    <div class="col-md-12">
+      <%= render 'posts/posts', posts: @posts %>
+    </div>
+  </div>
+<% else %>
+  <div class="center jumbotron">
+    <div class="text-center">
+      <h1>Studireへようこそ</h1>
+      <%= link_to '会員登録はこちら', new_user_registrations_path, class: 'btn btn-lg btn-primary' %>
+    </div>
+  </div>
+<% end %>
