@@ -9,6 +9,11 @@
   </div>
 
   <div class="form-group" >
+    <%= f.label :image, 'プロフィール画像' %>
+    <%= f.file_field :image %>
+  </div>
+    
+  <div class="form-group" >
       <%= f.label :profile, 'profile' %>
       <%= f.text_area :profile, placeholder: '300文字以内。',rows: "5",cols: "36", class: "form-control profile" %>
   </div>

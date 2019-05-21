@@ -31,11 +31,15 @@
             <!--<a href="#" class="mr-3">
             <img src="..." alt="メディアの画像">
             </a>-->
-          
+          <%= image_tag comment.user.image.to_s, class: 'mr-3', :size => '50x50' %>
       <div class="media-body">
-        <h5 class="mt-0"><%= comment.user.name %></h5>
+        <div>
+          <%= link_to comment.user.name, user_path(comment.user) %> <span class="text-muted">投稿日 <%= comment.created_at.strftime("%Y-%m-%d %H:%M") %></span>
+        </div>
+        <div>
           <%= comment.content %>
           <% end %>
+        </div>
       </div><!-- /.media-body -->
     </div><!-- /.media -->
   </div>

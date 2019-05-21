@@ -7,10 +7,13 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :comments
 
+  # carrierwave
+  mount_uploader :image, ImagesUploader
+
   # relationships
-  has_many :relationships
+  has_many :relationships, dependent: :destroy
   has_many :followings, through: :relationships, source: :follow
-  has_many :reverses_of_relationship, class_name: 'Relationship', foreign_key: 'follow_id'
+  has_many :reverses_of_relationship, class_name: 'Relationship', foreign_key: 'follow_id', dependent: :destroy
   has_many :followers, through: :reverses_of_relationship, source: :user
 
   def follow(other_user)
@@ -39,7 +42,7 @@ protected
                          provider: auth.provider,
                          uid: auth.uid,
                          password: Devise.friendly_token[0, 20],
-                         image: auth.info.image,
+                         remote_image_url: auth.info.image.gsub('http', 'https') #carrerwave用の変更
                          )
     end
     user
