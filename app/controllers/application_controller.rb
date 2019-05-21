@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
+  before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_search # ransack
   add_flash_types :success, :info, :warning, :danger
   protect_from_forgery with: :exception
-
-  before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
     
@@ -12,8 +12,14 @@ class ApplicationController < ActionController::Base
     end
   private
     def counts(user)
-    @count_posts = user.posts.count
-    @count_followings = user.followings.count
-    @count_followers = user.followers.count
-  end
+      @count_posts = user.posts.count
+      @count_followings = user.followings.count
+      @count_followers = user.followers.count
+    end
+
+    def set_search
+      query = { title_or_content_or_book_or_direction_or_summary_cont: params[:q] }
+      @q = Post.ransack(query)
+      @posts = @q.result.page(params[:page])
+    end
 end
