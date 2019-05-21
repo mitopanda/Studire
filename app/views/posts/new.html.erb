@@ -9,10 +9,10 @@
       <%#= render 'layouts/error_messages', model: f.object %>
       
     <!-- tagフォーム -->
-    <!--<div class='field'>
-      <%#= f.label :tag_list, 'Tags (半角スペース区切り)' %><br/>
-      <%#= f.text_field :tag_list %>
-    </div>-->
+    <div class='field'>
+      <%= f.label :tag_list, 'Tags (半角スペース区切り)' %><br/>
+      <%= f.text_field :tag_list %>
+    </div>
       
     <div class="form-group" >
       <%= f.label :title, 'タイトル' %>

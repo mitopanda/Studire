@@ -8,7 +8,7 @@
         </div>
         <div>
           <%= link_to post.title, post_path(post) %>
-          <p>Tags: <%#= raw(post.tag_list.map { |t| link_to t, tag_path(t) }.join(' ')) %></p>
+          <p>Tags: <%= raw(post.tag_list.map { |t| link_to t, tag_path(t) }.join(' ')) %></p>
         </div>
       </div>
     </div>

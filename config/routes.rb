@@ -29,4 +29,5 @@ Rails.application.routes.draw do
   # フォロー機能
   resources :relationships, only: [:create, :destroy]
 
+  get 'tags/:tag', to: 'home#index', as: :tag
 end
