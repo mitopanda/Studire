@@ -67,7 +67,7 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 
 gem 'rails-i18n'
-# gem 'carrierwave'
+gem 'carrierwave'
 # gem 'acts-as-taggable-on'
 # gem 'ransack'
 

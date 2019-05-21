@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     
     def configure_permitted_parameters
       devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :image, :profile])
-      devise_parameter_sanitizer.permit(:account_update, keys: [:name, :image, :profile])
+      devise_parameter_sanitizer.permit(:account_update, keys: [:name, :image, :profile, :image_cache, :remove_image])
     end
   private
     def counts(user)
