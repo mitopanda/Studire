@@ -7,4 +7,7 @@ class Post < ApplicationRecord
   validates :book, presence:true
   validates :direction, presence:true
   validates :summary, presence:true
+
+  #タグ用
+  acts_as_taggable
 end
