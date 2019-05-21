@@ -68,7 +68,7 @@ gem 'jquery-rails'
 
 gem 'rails-i18n'
 gem 'carrierwave'
-# gem 'acts-as-taggable-on'
+gem 'acts-as-taggable-on'
 # gem 'ransack'
 
 gem 'devise'
