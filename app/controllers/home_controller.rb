@@ -3,9 +3,7 @@ class HomeController < ApplicationController
     if params[:tag]
       @posts = Post.tagged_with(params[:tag])
     # ransack用
-    #elsif params[:q]
-    #  @q = Post.ransack(params[:q])
-    #  @posts = @q.result.page(params[:page])
+    elsif params[:q]
     else
       @posts = Post.all
     end
