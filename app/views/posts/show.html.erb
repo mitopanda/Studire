@@ -20,9 +20,10 @@
       <h3>まとめ</h3>
       <p class="text-break"><%= simple_format(@post.summary) %></p>
       <% if current_user == @post.user %>
-      <%= link_to '編集', edit_post_path(@post), class: 'btn btn-primary' %>
-      <%= link_to "削除",  @post, method: :delete, data: { confirm: "You sure?" } %>
+        <%= link_to '編集', edit_post_path(@post), class: 'btn btn-primary' %>
+        <%= link_to "削除",  @post, method: :delete, data: { confirm: "You sure?" } %>
       <% end %>
+      <%= render 'favorites/like_button', post: @post %>
     </div>
 
   <div class="col-md-8">

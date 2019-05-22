@@ -18,7 +18,7 @@ class User < ApplicationRecord
 
   def follow(other_user)
     unless self == other_user
-    self.relationships.find_or_create_by(follow_id: other_user.id)
+      self.relationships.find_or_create_by(follow_id: other_user.id)
     end
   end
 
@@ -31,6 +31,22 @@ class User < ApplicationRecord
     self.followings.include?(other_user)
   end
 
+  # favorites
+  has_many :favorites, dependent: :destroy
+  has_many :liked_posts, through: :favorites, source: :post
+
+  def like(post)
+    self.favorites.find_or_create_by(post_id: post.id)
+  end
+  
+  def unlike(post)
+    favorites = self.favorites.find_by(post_id: post.id)
+    favorites.destroy if favorites
+  end
+  
+  def liking?(post)
+    self.liked_posts.include?(post)
+  end
 
 protected
   def self.find_for_oauth(auth)

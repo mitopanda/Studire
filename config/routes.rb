@@ -20,14 +20,16 @@ Rails.application.routes.draw do
     member do
       get :followings
       get :followers
+      get :likes
     end
   end
   resources :posts do
-      # コメント機能　destroy追加予定
+    # コメント機能　destroy追加予定
     resources :comments, only: [:create]
   end
   # フォロー機能
   resources :relationships, only: [:create, :destroy]
-
+  # お気に入り
+  resources :favorites, only: [:create, :destroy]
   get 'tags/:tag', to: 'home#index', as: :tag
 end

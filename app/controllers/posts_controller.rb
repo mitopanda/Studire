@@ -6,6 +6,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comments = @post.comments.all
     @comment = current_user.comments.build
+    @favorite = Favorite.new
   end
 
   def new

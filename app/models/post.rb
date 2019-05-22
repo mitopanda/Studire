@@ -8,6 +8,10 @@ class Post < ApplicationRecord
   validates :direction, presence:true
   validates :summary, presence:true
 
+  #favorites
+  has_many :favorites
+  has_many :liked_users, through: :favorites, source: :user
+
   #タグ用
   acts_as_taggable
 end
