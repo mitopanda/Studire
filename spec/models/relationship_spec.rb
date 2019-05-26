@@ -7,13 +7,13 @@ RSpec.describe Relationship, type: :model do
     @relationship = FactoryBot.create(:relationship, user_id: @user.id, follow_id: @follow.id)
   end
 
-  context "relationshipが有効なとき" do
+  context "relationshipが有効であるとき" do
     it "有効なフォローの検証" do
      expect(@relationship).to be_valid
     end
   end
 
-  context "relationshipが無効なとき" do
+  context "relationshipが無効であるとき" do
 
     it "ユーザーidが存在しない" do
       @relationship.user_id = ""
