@@ -4,12 +4,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable, :omniauthable, omniauth_providers: [:twitter]
 
+  validates :profile, length: { maximum: 200 }
+  validates :name, presence: true, length: { maximum: 50 }
+
   has_many :posts, dependent: :destroy
   has_many :comments
-
   # carrierwave
   mount_uploader :image, ImagesUploader
-
   # relationships
   has_many :relationships, dependent: :destroy
   has_many :followings, through: :relationships, source: :follow
