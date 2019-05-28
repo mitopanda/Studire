@@ -19,7 +19,7 @@ jobs:
           command: docker-compose run web rails db:create db:migrate
       - run:
           name: test
-          command: docker-compose run web rails test #RSpecを使う場合は、bundle exec rspec
+          command: docker-compose run web bundle exec rspec #RSpecを使う場合は、bundle exec rspec
       - run:
           name: docker-compose down
           command: docker-compose down
