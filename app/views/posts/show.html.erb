@@ -51,7 +51,7 @@
   <div class="form-group">
     <%= form_for [@post, @comment] do |f| %>
       <%= render 'layouts/error_messages', model: f.object %>
-      <%= f.text_area :content, class: 'form-control', rows: '5' %>
+      <%= f.text_area :content, class: 'form-control', rows: '5', id: 'comment' %>
       <%= f.submit 'コメントする', class: 'btn btn-primary btn-block' %>
     <% end %>
   </div>
