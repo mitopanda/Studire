@@ -1,18 +1,28 @@
 class ImagesUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
-
+  include CarrierWave::MiniMagick
   # Choose what kind of storage to use for this uploader:
-  storage :file
-  # storage :fog
-
+  if Rails.env.development?
+    storage :file
+  elsif Rails.env.test?
+    storage :file
+  else
+    storage :fog
+  end
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
+  def extension_whitelist
+    %w(jpg jpeg gif png)
+  end
+
+  def filename
+    "#{secure_token}.#{file.extension}" if original_filename.present?
+  end
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url(*args)
   #   # For Rails 3.1+ asset pipeline compatibility:
@@ -47,4 +57,25 @@ class ImagesUploader < CarrierWave::Uploader::Base
   def default_url
     "default.png"
   end
+
+  process resize_to_fill: [150, 150]
+
+  protected
+  def secure_token
+    var = :"@#{mounted_as}_secure_token"
+    model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.uuid)
+  end
+
+  # private
+  # def crop
+  #   manipulate! do |img|
+  #     crop_x = model.crop_x.to_i
+  #     crop_y = model.crop_y.to_i
+  #     crop_w = model.crop_w.to_i
+  #     crop_h = model.crop_h.to_i
+  #     img.crop "#{crop_w}x#{crop_h}+#{crop_x}+#{crop_y}"
+  #     img = yield(img) if block_given?
+  #     img
+  #   end
+  # end
 end

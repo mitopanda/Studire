@@ -1,6 +1,6 @@
  <div class="row"> 
   <div class="card col-xs-4" style="width: 18rem;">
-    <%= image_tag @user.image.to_s, class: 'card-img-top' %>
+    <%= image_tag @user.image.url, class: 'card-img-top' %>
     <div class="card-body">
       <h5 class="card-title"><%= @user.name %></h5>
       <p class="card-text"><%= @user.profile %></p>

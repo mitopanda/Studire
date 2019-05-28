@@ -11,6 +11,10 @@ class User < ApplicationRecord
   has_many :comments
   # carrierwave
   mount_uploader :image, ImagesUploader
+  attr_accessor :crop_x
+  attr_accessor :crop_y
+  attr_accessor :crop_w
+  attr_accessor :crop_h
   # relationships
   has_many :relationships, dependent: :destroy
   has_many :followings, through: :relationships, source: :follow
