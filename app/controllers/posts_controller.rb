@@ -19,7 +19,7 @@ class PostsController < ApplicationController
       flash[:notice] = "投稿に成功しました。"
       redirect_to @post
     else
-      flash.now[:alert]
+      flash.now[:alert] = "投稿に失敗しました。"
       render :new
     end
   end
@@ -40,7 +40,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    flash[:notice] = 'メッセージを削除しました。'
+    flash[:notice] = '投稿を削除しました。'
     redirect_to root_url
   end
 

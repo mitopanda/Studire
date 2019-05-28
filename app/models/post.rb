@@ -3,10 +3,10 @@ class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   validates :title, presence:true, length: { maximum: 50 }
-  validates :content, presence:true
-  validates :book, presence:true
-  validates :direction, presence:true
-  validates :summary, presence:true
+  validates :content, presence:true, length: { maximum: 2000 }
+  validates :book, presence:true, length: { maximum: 2000 }
+  validates :direction, presence:true, length: { maximum: 2000 }
+  validates :summary, presence:true, length: { maximum: 2000 }
 
   #favorites
   has_many :favorites
