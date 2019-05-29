@@ -1,29 +1,24 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Studire</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
-    <%= render 'layouts/navbar' %>
-
-      <div class="container">
-      <% flash.each do |key, value| %>
-        <% key = "info" if key == "notice" %>
-        <% key = "danger"  if key == "alert" %>
-      <%= content_tag :div, value, class: "alert alert-#{key}" %>
-      <% end %>
-
-      <%= yield %>
-    </div>
-  </body>
-</html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Studire</title>
+        <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
+        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      </head>
+      <body>
+        <%= render 'layouts/navbar' %>
+        <div class="container-fluid">
+          <% flash.each do |key, value| %>
+            <% key = "info" if key == "notice" %>
+            <% key = "danger"  if key == "alert" %>
+            <%= content_tag :div, value, class: "alert alert-#{key}" %>
+          <% end %>
+          <%= yield %>
+        </div>
+      </body>
+    </html>

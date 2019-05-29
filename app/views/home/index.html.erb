@@ -5,10 +5,13 @@
     </div>
   </div>
 <% else %>
-  <div class="center jumbotron">
-    <div class="text-center">
+  <div class="home-top jumbotron jumbotron-fluid jumbotron-extend">
+    <div class="container home-text">
       <h1>Studireへようこそ</h1>
-      <%= link_to '会員登録はこちら', new_user_registration_path, class: 'btn btn-lg btn-primary' %>
+      <%= link_to '会員登録はこちら', new_user_registration_path, class: 'btn btn-lg btn-primary home-link' %>
     </div>
+  </div>
+  <div class="home-render">
+    <%= render 'posts/posts', posts: @posts%>
   </div>
 <% end %>
