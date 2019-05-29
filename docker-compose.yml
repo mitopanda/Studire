@@ -20,7 +20,6 @@ services:
     image: selenium/standalone-chrome:3.141.59-dubnium
     ports:
       - 4444:4444
-
 volumes:
   postgresql-data:
     driver: local
