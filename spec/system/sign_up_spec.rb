@@ -18,11 +18,11 @@ describe 'サインアップ機能', type: :system, js: true do
   context '無効な情報を送信したとき' do
     it 'エラーが起こる' do
       visit new_user_registration_path
-      fill_in 'name', with: ''
-      fill_in 'email', with: ''
-      fill_in 'password', with: ''
-      fill_in ('password-confirmation'), with: ''
-      click_button 'Sign up'
+      fill_in '名前', with: ''
+      fill_in 'メールアドレス', with: ''
+      fill_in 'パスワード', with: ''
+      fill_in ('パスワードの確認'), with: ''
+      click_button '会員登録'
       expect(page).to have_css('div#error_explanation')
       expect(page).to have_content 'メールアドレスを入力してください'
     end
