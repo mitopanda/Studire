@@ -3,7 +3,6 @@
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
-  <div class="">
     <div class="field form-group">
       <%#= f.label :name %>
       <%= f.text_field :name, class: 'form-control', id: "name", placeholder: 'ユーザ名' %>
@@ -23,15 +22,14 @@
       <%#= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control', id: 'password_confirmation', placeholder: 'パスワードの確認' %>
     </div>
-  </div>
-  <div class="">
+  <div>
       <%= f.submit "会員登録", class: "btn btn-outline-primary w-100 mb-2" %>
   </div>
   <% end %>
   <div>
-    <p>すでにアカウントをお持ちの方は
+    <p>すでにアカウントをお持ちの方はこちらから
     <%- if controller_name != 'sessions' %>
-      <%= link_to "こちらからログイン", new_session_path(resource_name) %>
+      <%= link_to "ログイン", new_session_path(resource_name) %>
     <% end %>
     してください。</p>
   </div>

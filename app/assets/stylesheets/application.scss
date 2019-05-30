@@ -21,19 +21,6 @@
 body {
   background-color: #f7f7f8;
 }
-p {
-  color: #26343a;
-  font-size: 15px;
-}
-
-a {
-  color: #333333;
-  font-weight: 700;
-  text-decoration: none;
-  &:hover {
-    color: #333333;
-  }
-}
 
 .container-fluid {
   padding: 0;
@@ -90,3 +77,20 @@ a.btn-twitter:hover {
 .sns-login {
   padding-top: 10px;
 }
+
+// user sessions new
+
+// post
+// p {
+//   color: #26343a;
+//   font-size: 15px;
+// }
+
+// a {
+//   color: #333333;
+//   font-weight: 700;
+//   text-decoration: none;
+//   &:hover {
+//     color: #333333;
+//   }
+// }
