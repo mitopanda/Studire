@@ -65,3 +65,28 @@ a {
   height: 35vh;
   min-height: 200px;
 }
+
+// user new
+
+.new-user-title {
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin: 20px 0px;
+}
+
+.btn-twitter {
+  color: #fff;
+  background-color: #1ca1f3;
+  &:hover {
+    background-color: #288fd4;
+  }
+}
+
+a.btn-twitter:hover {
+  color: #fff;
+}
+
+.sns-login {
+  padding-top: 10px;
+}
