@@ -95,6 +95,18 @@ a.btn-twitter:hover {
 }
 
 // user edit
+.user-edit-wrapper {
+  background-color: #fff;
+  border: 1px solid #e0e4e7;
+  border-radius: 2px;
+  margin-top: 45px;
+  margin-bottom: 45px;
+  padding: 30px;
+  p {
+    color: #555555;
+  }
+}
+
 .profile-count-normal {
   color: #818182;
   font-size: 12px;
@@ -105,6 +117,33 @@ a.btn-twitter:hover {
   font-size: 12px;
 }
 
+.profile-image-circle {
+  border: 7px solid #fff;
+  border-radius: 10%;
+}
+
+.edit-user-title {
+  margin-bottom: 20px;
+  a {
+    color: #333333;
+    font-size: 24px;
+    font-weight: 500;
+  }
+  p {
+    color: #555555;
+    font-size: 20px;
+  }
+}
+
+.edit-user-label {
+  color: #636161;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.delete-user-title {
+  font-size: 20px;
+}
 // post
 // p {
 //   color: #26343a;

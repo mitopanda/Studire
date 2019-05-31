@@ -1,21 +1,28 @@
-<div class="col-xs-10 offset-xs-1 col-md-8 offset-md-2 user-wrapper">
-  <h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="col-xs-10 offset-xs-1 col-md-8 offset-md-2 user-edit-wrapper">
+  <div class="edit-user-title text-center">
+    <p>
+      <%= link_to "#{@user.name}", user_path(current_user) %>さんのプロフィール変更
+    </p>
+  </div>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
-    <div class="field form-group">
-      <%= f.label :name, '名前' %><br />
-      <%= f.text_field :name, class: 'form-control' %>
+    <div class="text-center">
+    <%= image_tag @user.image.to_s, class: 'profile-image-circle mb-3' %><br>
+    </div>
+    <div class="form-group">
+      <%= f.label :image, 'プロフィール画像', class: 'edit-user-label' %><br>
+      <%= f.file_field :image, class: 'form-control-file' %>
     </div>
 
-    <div class="form-group" >
-      <%= f.label :image, 'プロフィール画像' %><br />
-      <%= f.file_field :image %>
+    <div class="field form-group">
+      <%= f.label :name, '名前', class: 'edit-user-label' %><br />
+      <%= f.text_field :name, class: 'form-control mb-4' %>
     </div>
       
     <div class="form-group" >
-        <%= f.label :profile, '自己紹介' %>
+        <%= f.label :profile, '自己紹介', class: 'edit-user-label' %>
         <%= f.text_area :profile, placeholder: '200文字以内。',rows: "5", class: "form-control profile", id: "profile-text" %>
         <p id="counter" class="text-right profile-count-normal">0文字</p>
     </div>
@@ -48,13 +55,11 @@
     </div> -->
 
     <div class="actions">
-      <%= f.submit "Update" %>
+      <%= f.submit "Update", class: 'btn btn-outline-primary btn-block mb-4' %>
     </div>
   <% end %>
 
-  <h3>Cancel my account</h3>
+  <div class="delete-user-title mb-3">退会される方はこちら</div>
 
-  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-  <%= link_to "Back", :back %>
+  <%= button_to "退会する", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger' %>
 </div>
