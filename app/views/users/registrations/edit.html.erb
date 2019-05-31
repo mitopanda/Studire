@@ -20,33 +20,32 @@
         <p id="counter" class="text-right profile-count-normal">0文字</p>
     </div>
 
-    <div class="field form-group">
-      <%= f.label :email, 'メールアドレスの変更' %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+  <!--<div class="field form-group">
+      <%#= f.label :email, 'メールアドレス' %><br />
+      <%#= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
     </div>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-    <% end %>
+    <%# if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%#= resource.unconfirmed_email %></div>
+    <%# end %>
 
     <div class="field form-group">
-      <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-      <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
-      <% if @minimum_password_length %>
-        <br />
-        <em><%= @minimum_password_length %> characters minimum</em>
-      <% end %>
-    </div>
-
-    <div class="field form-group">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+      <%#= f.label :password %><i>（パスワードを変更する方のみ）</i><br />
+      <%#= f.password_field :password, autocomplete: "new-password", class: 'form-control', placeholder: '8文字以上' %>
+      <%# if @minimum_password_length %>
+        <em><%#= @minimum_password_length %></em>
+      <%# end %>
     </div>
 
     <div class="field form-group">
-      <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-      <%= f.password_field :current_password, autocomplete: "current-password", class: 'form-control' %>
+      <%#= f.label :password_confirmation %><i> (パスワードを変更する方のみ）</i><br />
+      <%#= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
     </div>
+
+    <div class="field form-group">
+      <%#= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+      <%#= f.password_field :current_password, autocomplete: "current-password", class: 'form-control' %>
+    </div> -->
 
     <div class="actions">
       <%= f.submit "Update" %>
