@@ -33,3 +33,14 @@ $(function() {
     }
   });
 });
+
+//  フォローボタンのテキスト変更
+$(function() {
+  $(".unfollow-button")
+    .mouseover(function() {
+      $(this).attr("value", "フォロー解除");
+    })
+    .mouseout(function() {
+      $(this).attr("value", "フォロー中");
+    });
+});

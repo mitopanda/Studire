@@ -4,6 +4,10 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
     @posts = @user.posts.order('created_at DESC').page(params[:page])
     counts(@user)
+    @followings = @user.followings.page(params[:page])
+    counts(@user)
+    @followers = @user.followers.page(params[:page])
+    counts(@user)
   end
 
   def followings
