@@ -204,6 +204,10 @@ a.user-show-to-edit {
   }
 }
 
+.user-show-navlink {
+  color: #1172e2;
+}
+
 .user-show-nav {
   background-color: #fff;
   border: solid hsl(206, 13%, 89%);
@@ -211,6 +215,36 @@ a.user-show-to-edit {
   border-width: 0px 1px 1px 1px;
   padding: 0;
 }
+
+//user persial
+
+.user-p {
+  padding-left: 40px;
+  a {
+    color: #076fa7;
+    font-size: 0.9rem;
+  }
+  p {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+  hr {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.user-p-content {
+  margin: 0;
+  text-align: left;
+  width: 70%;
+}
+
+.user-p-follow {
+  margin: 0;
+  text-align: right;
+}
+
 // post
 // p {
 //   color: #26343a;

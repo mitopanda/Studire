@@ -15,15 +15,17 @@
         <% end %>
       <% end %>
       <hr>
-      <%= render 'relationships/follow_button', user: @user %> 
+      <div class="mb-3 text-center">
+        <%= render 'relationships/follow_button', user: @user %> 
+      </div>
     </div>
   </div>
-  <div class="col-xs-12 col-md-9 mt-4 user-show-height">
+  <div class="col-xs-12 col-md-9 mt-4">
     <div>
       <ul id="myTab" class="nav nav-tabs" role="tablist">
-        <li class="nav-item"><%= link_to "#mypost", id: 'mypost-tab', class: 'nav-link active', role: 'tab', data: { toggle: 'tab' }, aria: { controls: "mypost" }, aria: { selected: "true" } do %>投稿 <span class="badge"><%= @count_posts %></span><% end %></li>
-        <li class="nav-item"><%= link_to "#followings", id: 'followings-tab', class: 'nav-link', role: 'tab', data: { toggle: 'tab' }, aria: { controls: "followings" }, aria: { selected: "false" } do %>Followings <span class="badge"><%= @count_followings %></span><% end %></li>
-        <li class="nav-item"><%= link_to "#followers", id: 'followers-tab', class: 'nav-link', role: 'tab', data: { toggle: 'tab' }, aria: { controls: "followers" }, aria: { selected: "false" }  do %>Followers <span class="badge"><%= @count_followers %></span><% end %></li>
+        <li class="nav-item"><%= link_to "#mypost", id: 'mypost-tab', class: 'nav-link active user-show-navlink', role: 'tab', data: { toggle: 'tab' }, aria: { controls: "mypost" }, aria: { selected: "true" } do %>投稿 <span class="badge"><%= @count_posts %></span><% end %></li>
+        <li class="nav-item"><%= link_to "#followings", id: 'followings-tab', class: 'nav-link user-show-navlink', role: 'tab', data: { toggle: 'tab' }, aria: { controls: "followings" }, aria: { selected: "false" } do %>フォロー中 <span class="badge"><%= @count_followings %></span><% end %></li>
+        <li class="nav-item"><%= link_to "#followers", id: 'followers-tab', class: 'nav-link user-show-navlink', role: 'tab', data: { toggle: 'tab' }, aria: { controls: "followers" }, aria: { selected: "false" }  do %>フォロワー <span class="badge"><%= @count_followers %></span><% end %></li>
       </ul>
       <div id="myTabContent" class="tab-content pt-3 user-show-nav">
         <div id="mypost" class="tab-pane active" role="tabpanel" aria-labelledby="mypost-tab">
