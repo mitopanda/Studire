@@ -1,20 +1,20 @@
 <% if users.any? %>
-  <ul class="list-unstyled user-p">
+  <ul class="list-unstyled user-media">
     <% users.each do |user| %>
     <li class="media">
-        <%= image_tag user.image.to_s, class: 'mr-3', :size => '50x50' %>
-      <div class="media-body user-p-content">
+      <%= image_tag user.image.to_s, class: 'mr-3', :size => '50x50' %>
+      <div class="media-body user-media-content">
         <div class="mt-0">
           <%= link_to "#{user.name}", user_path(user) %>
           <p><%= user.profile %></p> 
         </div>
       </div><!-- /.media-body -->
-      <div class="user-p-follow mr-2 mt-2">
+      <div class="user-media-follow-button mr-2 mt-2">
         <%= render 'relationships/follow_button', user: user %>
       <div>
     </li><!-- /.media -->
     <hr>
     <% end %>
-  <%= paginate users %>
-</ul>
+    <%= paginate users %>
+  </ul>
 <% end %>

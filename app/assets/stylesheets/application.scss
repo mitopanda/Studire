@@ -16,18 +16,28 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+$default-color: #464646;
+$link-color: #076fa7;
+
+@mixin background {
+  background-color: #fff;
+  border: 1px solid #e0e4e7;
+  border-radius: 2px;
+}
+
+@mixin circle {
+  border: 1px solid #fff;
+  border-radius: 15%;
+}
+
 // 基本設定
+
+html {
+  font-size: 15px;
+}
 
 body {
   background-color: #f5f5f5;
-}
-
-.container-fluid {
-  padding: 0;
-}
-
-p {
-  color: #26343a;
 }
 
 // home
@@ -36,46 +46,47 @@ p {
   background-size: cover;
 }
 
-.home-top {
-  width: 100%;
-  h1 {
-    color: #ffffff;
-    margin-left: 10px;
-  }
-}
-
-.home-text {
-  margin-top: 20px;
-}
-
-.home-link {
-  text-align: right;
-}
-
 .jumbotron-extend {
   position: relative;
   height: 35vh;
   min-height: 200px;
 }
 
+.home-top {
+  width: 100%;
+  .home-text {
+    margin-top: 20px;
+  }
+  h1 {
+    color: #ffffff;
+    margin-left: 10px;
+  }
+  .home-link {
+    text-align: right;
+  }
+}
+
 // user
 
 .user-wrapper {
-  background-color: #fff;
-  border: 1px solid #e0e4e7;
-  border-radius: 2px;
+  @include background;
+  color: $default-color;
   margin-top: 45px;
   margin-bottom: 45px;
   padding: 30px;
 }
 
-// user new
+// user&session new
 
-.new-user-title {
-  font-size: 30px;
+.user-new-title {
+  font-size: 2rem;
   font-weight: 500;
   letter-spacing: 1px;
   margin: 20px 0px;
+}
+
+.sns-login {
+  padding-top: 10px;
 }
 
 .btn-twitter {
@@ -83,84 +94,66 @@ p {
   background-color: #1ca1f3;
   &:hover {
     background-color: #288fd4;
+    color: #fff;
   }
-}
-
-a.btn-twitter:hover {
-  color: #fff;
-}
-
-.sns-login {
-  padding-top: 10px;
 }
 
 // user edit
 .user-edit-wrapper {
-  background-color: #fff;
-  border: 1px solid #e0e4e7;
-  border-radius: 2px;
+  @include background;
+  color: $default-color;
   margin-top: 45px;
   margin-bottom: 45px;
   padding: 30px;
-  p {
-    color: #444444;
-  }
 }
 
-.profile-count-normal {
-  color: #818182;
-  font-size: 12px;
+.user-edit-image-circle {
+  @include circle;
 }
 
-.profile-count-danger {
+.count-default {
+  color: #818181;
+  font-size: 0.8rem;
+}
+
+.count-danger {
   color: #df235e;
-  font-size: 12px;
+  font-size: 0.8rem;
 }
 
-.profile-image-circle {
-  border: 7px solid #fff;
-  border-radius: 15%;
-}
-
-.edit-user-title {
+.user-edit-title {
   margin-bottom: 20px;
+  font-size: 1.4rem;
   a {
-    color: #444444;
-    font-size: 24px;
+    color: #555555;
+    font-size: 1.6rem;
     font-weight: 500;
   }
-  p {
-    color: #3f3e3e;
-    font-size: 20px;
-  }
 }
 
-.edit-user-label {
-  color: #313131;
-  font-size: 14px;
+.user-edit-label {
+  color: $default-color;
+  font-size: 0.95rem;
   font-weight: 600;
 }
 
-.delete-user-title {
-  font-size: 20px;
+.user-destroy-button {
+  font-size: 1.5rem;
 }
 
 //user show
-.user-show-header {
-  background-color: #fff;
-  border: 1px solid hsl(206, 13%, 89%);
-  border-radius: 2px;
+.user-show-aside {
+  @include background;
+  color: $default-color;
 }
 
 .show-profile-image-circle {
-  border: 1px solid #fff;
-  border-radius: 15%;
+  @include circle;
   margin-top: 1rem;
   width: 100%;
 }
 
 .user-show-name {
-  color: #555555;
   font-size: 1.2rem;
   font-weight: 700;
   padding: 0.6rem 0;
@@ -170,7 +163,7 @@ a.btn-twitter:hover {
   font-size: 0.85rem;
 }
 
-a.user-show-to-edit {
+.user-show-to-edit {
   color: #555555;
   font-size: 0.8rem;
   &:hover {
@@ -204,11 +197,13 @@ a.user-show-to-edit {
   }
 }
 
-.user-show-navlink {
-  color: #1172e2;
+#myTab {
+  a {
+    color: $link-color;
+  }
 }
 
-.user-show-nav {
+#myTabContent {
   background-color: #fff;
   border: solid hsl(206, 13%, 89%);
   border-radius: 2px;
@@ -216,12 +211,13 @@ a.user-show-to-edit {
   padding: 0;
 }
 
-//user persial
+// _user
 
-.user-p {
+.user-media {
   padding-left: 40px;
+  color: $default-color;
   a {
-    color: #076fa7;
+    color: $link-color;
     font-size: 0.9rem;
   }
   p {
@@ -234,13 +230,13 @@ a.user-show-to-edit {
   }
 }
 
-.user-p-content {
+.user-media-content {
   margin: 0;
   text-align: left;
   width: 70%;
 }
 
-.user-p-follow {
+.user-media-follow-button {
   margin: 0;
   text-align: right;
 }

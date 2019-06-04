@@ -23,13 +23,13 @@ $(function() {
   $("#profile-text").keyup(function() {
     var count = $(this).val().length;
     if (count <= 200) {
-      $("#counter").removeClass("profile-count-danger");
-      $("#counter").addClass("profile-count-default");
+      $("#counter").removeClass("count-danger");
+      $("#counter").addClass("count-default");
       $("#counter").text(count + "文字");
     } else if (count > 200) {
       $("#counter").text(count + "文字");
-      $("#counter").removeClass("profile-count-default");
-      $("#counter").addClass("profile-count-danger");
+      $("#counter").removeClass("count-default");
+      $("#counter").addClass("count-danger");
     }
   });
 });
