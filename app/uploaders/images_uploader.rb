@@ -58,7 +58,7 @@ class ImagesUploader < CarrierWave::Uploader::Base
     "default.png"
   end
 
-  process resize_to_fill: [150, 150]
+  process resize_to_fill: [200, 200]
 
   protected
   def secure_token

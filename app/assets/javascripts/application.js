@@ -17,3 +17,30 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+
+// formの文字数のカウンター
+$(function() {
+  $("#profile-text").keyup(function() {
+    var count = $(this).val().length;
+    if (count <= 200) {
+      $("#counter").removeClass("count-danger");
+      $("#counter").addClass("count-default");
+      $("#counter").text(count + "文字");
+    } else if (count > 200) {
+      $("#counter").text(count + "文字");
+      $("#counter").removeClass("count-default");
+      $("#counter").addClass("count-danger");
+    }
+  });
+});
+
+//  フォローボタンのテキスト変更
+$(function() {
+  $(".unfollow-button")
+    .mouseover(function() {
+      $(this).attr("value", "フォロー解除");
+    })
+    .mouseout(function() {
+      $(this).attr("value", "フォロー中");
+    });
+});

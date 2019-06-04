@@ -10,8 +10,8 @@ describe 'ログイン機能', type: :system, js: true do
 
   context '有効な情報が送信されたとき' do
     it '記事一覧ページが表示される' do
-      fill_in 'メールアドレス', with: @user.email
-      fill_in 'パスワード', with: @user.password
+      fill_in 'email', with: @user.email
+      fill_in 'password', with: @user.password
       click_button 'ログイン'
 
       expect(page).to have_css('div.alert.alert-info')
@@ -20,8 +20,8 @@ describe 'ログイン機能', type: :system, js: true do
 
   context '無効な情報が送信されたとき' do
     it 'ログインページにリダイレクトされる'do
-      fill_in 'メールアドレス', with: ""
-      fill_in 'パスワード', with: ""
+      fill_in 'email', with: ""
+      fill_in 'password', with: ""
       click_button 'ログイン'
       
       expect(page).to have_css('div.alert.alert-danger')
