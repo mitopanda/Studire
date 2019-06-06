@@ -8,7 +8,10 @@
           <span class="text-muted post-index-date">投稿日<%= post.created_at.strftime("%Y/%m/%d") %></span>
           <br>
           <%= link_to post.title, post_path(post), class: 'post-media-title' %>
-          <p class="post-index-tag"><i class="fas fa-tags"></i> <%= raw(post.tag_list.map { |t| link_to t, tag_path(t) }.join(' ')) %></p>
+          <div class="post-index-tag">
+            <span><i class="fas fa-thumbs-up"></i>&nbsp;<%= post.liked_users.count %></span> 
+            <span>&ensp;<i class="fas fa-tags"></i>&nbsp;<%= raw(post.tag_list.map { |t| link_to t, tag_path(t) }.join(' ')) %></span>
+          </div>
         </div>
       </div>
     </li>

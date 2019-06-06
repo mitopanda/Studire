@@ -19,6 +19,7 @@
 $default-color: #464646;
 $light: #818181;
 $link-color: #076fa7;
+$visited-color: #6e6e6e;
 
 @mixin background {
   background-color: #fff;
@@ -298,7 +299,7 @@ body {
 // _post
 
 .post-media {
-  padding-left: 20px;
+  padding: 0 20px;
   color: $default-color;
   hr {
     margin-top: 0.5rem;
@@ -324,6 +325,9 @@ body {
   &:hover {
     color: $default-color;
     font-weight: 700;
+  }
+  &:visited {
+    color: $visited-color;
   }
 }
 
