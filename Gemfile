@@ -82,3 +82,5 @@ gem 'devise-i18n-views'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'dotenv-rails'
+
+gem 'jquery-ui-rails'
