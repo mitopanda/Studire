@@ -42,6 +42,16 @@ body {
 }
 
 // home
+.home-title {
+  background-color: #fff;
+  border: 2px solid #e0e4e7;
+  color: $default-color;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding: 10px 20px;
+}
+
 .jumbotron {
   background-image: url("header.jpg");
   background-size: cover;
