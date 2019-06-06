@@ -44,7 +44,7 @@ body {
 // home
 .home-title {
   background-color: #fff;
-  border: 2px solid #e0e4e7;
+  border-left: 4px solid #0075cf;
   color: $default-color;
   font-size: 2rem;
   font-weight: 600;
@@ -77,8 +77,37 @@ body {
   }
 }
 
-// pagination
+.tag-cloud {
+  @include background;
+  padding: 10px 20px;
+  a {
+    background-color: #eeeeee;
+    border: 1px;
+    border-radius: 5px;
+    color: $default-color;
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin: 5px 5px 5px 0;
+    padding: 2px 8px;
+    &:hover {
+      background-color: #dadada;
+      color: $default-color;
+      text-decoration: none;
+    }
+  }
+}
 
+.tag-title {
+  border-left: 4px solid #0075cf;
+  color: $default-color;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding: 10px 20px;
+}
+
+// pagination
 .pagination {
   .page-link {
     color: $link-color;
@@ -269,7 +298,7 @@ body {
 // _post
 
 .post-media {
-  padding-left: 40px;
+  padding-left: 20px;
   color: $default-color;
   hr {
     margin-top: 0.5rem;
@@ -310,6 +339,7 @@ body {
     margin: 5px 5px 5px 0;
     padding: 0.1rem 0.3rem;
     &:hover {
+      background-color: #dadada;
       text-decoration: none;
     }
   }

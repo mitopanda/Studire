@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
   <div class="row">
-    <div class="col-md-12 mt-4 mb-4">
+    <div class="col-xs-12 col-md-9 mt-4 mb-4 order-md-2">
       <% if params[:q] %>
         <div class="home-title"><%= "#{params[:q]}の検索結果" %></div>
       <% elsif params[:tag] %>
@@ -19,6 +19,14 @@
             <%= render 'posts/posts', posts: @liking %>
           </div> 
         </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-3 mt-4 order-md-1">
+      <p class="tag-title">タグ一覧</p>
+      <div class="tag-cloud">
+        <% tag_cloud(@tags, %w(css1)) do |tag, css_class| %>
+          <%= link_to "#{tag.name}(#{tag.count})", tag_path(tag.name), :class => css_class %>
+        <% end %>
       </div>
     </div>
   </div>
