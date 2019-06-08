@@ -40,7 +40,7 @@ html {
 }
 
 body {
-  background-color: #f5f5f5;
+  background-color: #f8f8f8;
 }
 
 p {
@@ -331,12 +331,12 @@ p {
 .post-media-title {
   color: $default-color;
   font-weight: 700;
+  &:visited {
+    color: $visited-color;
+  }
   &:hover {
     color: $default-color;
     font-weight: 700;
-  }
-  &:visited {
-    color: $visited-color;
   }
 }
 
@@ -408,7 +408,7 @@ p {
 }
 
 .post-show-content {
-  margin-bottom: 50px;
+  margin-bottom: 70px;
   h1 {
     border-bottom: 5px solid #cecfcf94;
     font-size: 2rem;
@@ -450,6 +450,18 @@ p {
   p {
     color: $light;
     font-size: 0.8rem;
+  }
+}
+
+.post-comment-media-header {
+  h4 {
+    font-size: 1.4rem;
+  }
+  p {
+    border-bottom: 1px solid #e0e4e7;
+    border-top: 1px solid #e0e4e7;
+    padding: 60px 0;
+    text-align: center;
   }
 }
 
@@ -506,7 +518,7 @@ p {
   margin-top: 30px;
 }
 
-.post-show-comment-header {
+.post-show-comment-form-header {
   background-color: #0a9cec;
   color: #fff;
   padding: 10px;

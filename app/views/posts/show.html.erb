@@ -40,7 +40,11 @@
         </div>
       </div><!-- /.media -->
     </div>
+    <% if @comments.length > 0 %>
     <div>
+      <div class="post-comment-media-header mt-4">
+        <h4><%= @comments.count %>件のコメント</h4>
+      </div>
       <% @comments.each do |comment| %>
       <div class="post-comment-media">
         <hr>
@@ -54,12 +58,18 @@
       </div>
     <% end %>
     </div>
+    <% else %>
+    <div class="post-comment-media-header mt-4">
+      <h4><%= @comments.count %>件のコメント</h4>
+      <p>まだコメントはありません。</p>
+    </div>
+    <% end %>
     <div class="form-group post-show-comment-area">
-      <div class="post-show-comment-header">
+      <div class="post-show-comment-form-header">
         <%= image_tag current_user.image.to_s, class: 'mr-1 post-user-image', :size => '40x40' %>
         <div class="post-show-comment-label">コメントする</div>
       </div>
-      <div>
+      <div></div>
         <%= form_for [@post, @comment] do |f| %>
           <%= render 'layouts/error_messages', model: f.object %>
           <%= f.text_area :content, class: 'form-control', rows: '5', id: 'comment', placeholder: 'コメントを入力してください。' %>
