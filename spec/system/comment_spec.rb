@@ -13,7 +13,7 @@ describe 'コメント投稿機能', type: :system, js: true do
     it 'コメントが表示される' do
       visit post_path(id: @post.id)
       fill_in 'comment', with: 'コメント'
-      click_button 'コメントする'
+      click_button '投稿'
       expect(page).to have_content 'コメント'
       expect(page).to have_css('div.alert.alert-info')
     end
@@ -23,7 +23,7 @@ describe 'コメント投稿機能', type: :system, js: true do
     it 'エラーが発生する' do
       visit post_path(id: @post.id)
       fill_in 'comment', with: ''
-      click_button 'コメントする'
+      click_button '投稿'
       expect(page).to have_css('div.alert.alert-danger')
     end
   end
