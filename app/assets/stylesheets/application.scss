@@ -49,16 +49,6 @@ p {
 }
 
 // home
-.home-title {
-  background-color: #fff;
-  border-left: 4px solid #0075cf;
-  color: $default-color;
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  padding: 10px 20px;
-}
-
 .jumbotron {
   background-image: url("header.jpg");
   background-size: cover;
@@ -66,22 +56,50 @@ p {
 
 .jumbotron-extend {
   position: relative;
-  height: 35vh;
+  height: 70vh;
   min-height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.home-top {
-  width: 100%;
-  .home-text {
-    margin-top: 20px;
-  }
+.home-header {
+  text-align: center;
   h1 {
     color: #ffffff;
-    margin-left: 10px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
   }
-  .home-link {
-    text-align: right;
+  p {
+    color: rgb(196, 196, 196);
   }
+  .home-button-wrapper {
+    margin: 20px;
+  }
+  .home-separator {
+    color: #fff;
+    margin: 5px 0;
+  }
+  .home-button {
+    border: 2px solid #0a9cec;
+    border-radius: 7px;
+    color: #0a9cec;
+    padding: 7px 15px;
+    &:hover {
+      background-color: rgba(240, 240, 240, 0.253);
+    }
+  }
+}
+
+.ransack-tag-title {
+  background-color: #fff;
+  border-left: 4px solid #0075cf;
+  color: $default-color;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding: 10px 20px;
 }
 
 .tag-cloud {
