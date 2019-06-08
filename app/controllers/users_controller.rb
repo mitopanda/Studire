@@ -3,10 +3,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by(id: params[:id])
     @posts = @user.posts.order('created_at DESC').page(params[:page]).per(10)
-    counts(@user)
     @followings = @user.followings.page(params[:page]).per(10)
-    counts(@user)
     @followers = @user.followers.page(params[:page]).per(10)
+    @liking = @user.liked_posts.page(params[:page]).per(10)
     counts(@user)
   end
 

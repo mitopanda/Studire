@@ -10,6 +10,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require_tree .
  *= require_self
  */
 @import "bootstrap";
@@ -17,7 +18,9 @@
 @import "font-awesome";
 
 $default-color: #464646;
+$light: #818181;
 $link-color: #076fa7;
+$visited-color: #6e6e6e;
 
 @mixin background {
   background-color: #fff;
@@ -37,10 +40,25 @@ html {
 }
 
 body {
-  background-color: #f5f5f5;
+  background-color: #f8f8f8;
+}
+
+p {
+  color: $default-color;
+  line-height: 2;
 }
 
 // home
+.home-title {
+  background-color: #fff;
+  border-left: 4px solid #0075cf;
+  color: $default-color;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding: 10px 20px;
+}
+
 .jumbotron {
   background-image: url("header.jpg");
   background-size: cover;
@@ -66,13 +84,56 @@ body {
   }
 }
 
+.tag-cloud {
+  @include background;
+  padding: 10px 20px;
+  a {
+    background-color: #eeeeee;
+    border: 1px;
+    border-radius: 5px;
+    color: $default-color;
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin: 5px 5px 5px 0;
+    padding: 2px 8px;
+    &:hover {
+      background-color: #dadada;
+      color: $default-color;
+      text-decoration: none;
+    }
+  }
+}
+
+.tag-title {
+  border-left: 4px solid #0075cf;
+  color: $default-color;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding: 10px 20px;
+}
+
+// pagination
+.pagination {
+  .page-link {
+    color: $link-color;
+  }
+  .page-item.active {
+    .page-link {
+      background-color: $link-color;
+      border-color: $link-color;
+    }
+  }
+}
+
 // user
 
 .user-wrapper {
   @include background;
   color: $default-color;
   margin-top: 45px;
-  margin-bottom: 45px;
+  margin-bottom: 20px;
   padding: 30px;
 }
 
@@ -112,7 +173,7 @@ body {
 }
 
 .count-default {
-  color: #818181;
+  color: $light;
   font-size: 0.8rem;
 }
 
@@ -216,6 +277,16 @@ body {
 .user-media {
   padding-left: 40px;
   color: $default-color;
+  hr {
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.user-media-content {
+  margin: 0;
+  text-align: left;
+  width: 70%;
   a {
     color: $link-color;
     font-size: 0.9rem;
@@ -224,16 +295,6 @@ body {
     margin: 0;
     font-size: 0.9rem;
   }
-  hr {
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-  }
-}
-
-.user-media-content {
-  margin: 0;
-  text-align: left;
-  width: 70%;
 }
 
 .user-media-follow-button {
@@ -241,17 +302,229 @@ body {
   text-align: right;
 }
 
-// post
-// p {
-//   color: #26343a;
-//   font-size: 15px;
-// }
+// _post
 
-// a {
-//   color: #333333;
-//   font-weight: 700;
-//   text-decoration: none;
-//   &:hover {
-//     color: #333333;
-//   }
-// }
+.post-media {
+  padding: 0 20px;
+  color: $default-color;
+  img {
+    margin-top: 0.5rem;
+  }
+  hr {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.post-media-content {
+  margin: 0;
+  .post-media-name {
+    color: $link-color;
+    font-size: 0.8rem;
+  }
+  span {
+    color: $light;
+    font-size: 0.8rem;
+  }
+}
+
+.post-media-title {
+  color: $default-color;
+  font-weight: 700;
+  &:visited {
+    color: $visited-color;
+  }
+  &:hover {
+    color: $default-color;
+    font-weight: 700;
+  }
+}
+
+.post-index-tag {
+  margin: 0;
+  color: $light;
+  font-size: 0.8rem;
+  a {
+    background-color: #eeeeee;
+    border: 1px;
+    border-radius: 5px;
+    color: $default-color;
+    margin: 5px 5px 5px 0;
+    padding: 0.1rem 0.3rem;
+    &:hover {
+      background-color: #dadada;
+      text-decoration: none;
+    }
+  }
+}
+
+//post new edit
+
+.post-new-edit-title {
+  margin: 30px 0;
+  font-size: 2rem;
+}
+
+.post-new-edit-label {
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+// post show
+
+.post-user-image {
+  @include circle;
+}
+
+.post-show-user-name {
+  color: $default-color;
+}
+
+.post-show-title {
+  margin-top: 10px;
+  h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    font-feature-settings: "palt";
+  }
+}
+
+.post-show-tag {
+  margin-top: 20px;
+  color: $light;
+  font-size: 1rem;
+  a {
+    background-color: #eeeeee;
+    border: 1px;
+    border-radius: 5px;
+    color: $default-color;
+    margin-right: 7px;
+    padding: 0.2rem 0.3rem;
+    &:hover {
+      background-color: #dadada;
+      text-decoration: none;
+    }
+  }
+}
+
+.post-show-content {
+  margin-bottom: 70px;
+  h1 {
+    border-bottom: 5px solid #cecfcf94;
+    font-size: 2rem;
+    font-feature-settings: "palt";
+    font-weight: 700;
+    line-height: 1.5;
+    margin: 80px 0 20px 0;
+  }
+}
+
+.good-button {
+  border: 2px solid #2294f1;
+  color: #2294f1;
+  &:hover {
+    background-color: rgb(238, 238, 238);
+    color: #2294f1;
+  }
+}
+
+.good-button-now {
+  background-color: #2294f1;
+  border: 2px solid #2294f1;
+  color: #fff;
+  &:hover {
+    background-color: #66ade7;
+    border-color: #66ade7;
+    color: #fff;
+  }
+}
+
+.post-show-user-profile {
+  @include background;
+  padding: 20px 0 10px 0;
+  a {
+    color: $default-color;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  p {
+    color: $light;
+    font-size: 0.8rem;
+  }
+}
+
+.post-comment-media-header {
+  h4 {
+    font-size: 1.4rem;
+  }
+  p {
+    border-bottom: 1px solid #e0e4e7;
+    border-top: 1px solid #e0e4e7;
+    padding: 60px 0;
+    text-align: center;
+  }
+}
+
+.post-comment-media {
+  a {
+    color: $link-color;
+  }
+  span {
+    font-size: 0.9rem;
+  }
+  hr {
+    margin: 20px 0;
+  }
+  .post-comment-content {
+    position: relative;
+    display: block;
+    margin-top: 1.5em;
+    padding: 20px 30px;
+    color: #555;
+    font-size: 16px;
+    background: #fff;
+    border: solid 1px #e0e4e7;
+    box-sizing: border-box;
+    &:before {
+      content: "";
+      position: absolute;
+      top: -24px;
+      left: 4%;
+      margin-left: -15px;
+      border: 12px solid transparent;
+      border-bottom: 12px solid #fff;
+      z-index: 2;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      top: -30px;
+      left: 4%;
+      margin-left: -17px;
+      border: 14px solid transparent;
+      border-bottom: 16px solid #e0e4e7;
+      z-index: 1;
+    }
+    p {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+.post-show-comment-area {
+  border: 1px solid #e0e4e7;
+  border-radius: 2px;
+  margin-top: 30px;
+}
+
+.post-show-comment-form-header {
+  background-color: #0a9cec;
+  color: #fff;
+  padding: 10px;
+}
+
+.post-show-comment-label {
+  display: inline-block;
+  font-weight: 600;
+}
