@@ -34,6 +34,21 @@ $(function() {
   });
 });
 
+$(function() {
+  $("#post-count").keyup(function() {
+    var count = $(this).val().length;
+    if (count <= 50) {
+      $("#counter").removeClass("count-danger");
+      $("#counter").addClass("count-default");
+      $("#counter").text(count + "文字");
+    } else if (count > 50) {
+      $("#counter").text(count + "文字");
+      $("#counter").removeClass("count-default");
+      $("#counter").addClass("count-danger");
+    }
+  });
+});
+
 //  フォローボタンのテキスト変更
 $(function() {
   $(".unfollow-button")

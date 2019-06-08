@@ -15,7 +15,7 @@ describe 'ポスト機能', type: :system, js: true do
     context '有効な情報を送信したとき' do
       it '正常に登録される' do
         expect {
-          fill_in 'タイトル', with: 'タイトルです。'
+          fill_in 'post-count', with: 'タイトルです。'
           fill_in '学習内容', with: '学習内容です。'
           fill_in '教材', with: '教材です。'
           fill_in '学習方法', with: '学習方法です。'
@@ -31,7 +31,7 @@ describe 'ポスト機能', type: :system, js: true do
     context '無効な情報を送信したとき' do
       it 'エラーとなる' do
         expect {
-          fill_in 'タイトル', with: ''
+          fill_in 'post-count', with: ''
           fill_in '学習内容', with: ''
           fill_in '教材', with: ''
           fill_in '学習方法', with: ''
