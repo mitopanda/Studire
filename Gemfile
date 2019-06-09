@@ -84,3 +84,5 @@ gem 'omniauth-twitter'
 gem 'dotenv-rails'
 
 gem 'jquery-ui-rails'
+	
+gem 'rails_autolink'
