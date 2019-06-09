@@ -8,7 +8,7 @@
         <div class="user-show-name text-center"><%= @user.name %></div>
         <hr>
         <div class="mb-1"><i class="fas fa-address-card"></i> Profile</div>
-        <p class="user-show-profile"><%= @user.profile %></p>
+        <p class="user-show-profile"><%= auto_link(@user.profile, html: {target: '_blank'}) %></p>
         <% if current_user == @user %>
           <hr>
           <%= link_to edit_user_registration_path(current_user), class: 'user-show-to-edit' do %>

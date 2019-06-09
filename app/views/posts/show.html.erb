@@ -17,13 +17,13 @@
         <div class="post-show-tag"><i class="fas fa-tags"></i>&ensp;<%= raw(@post.tag_list.map { |t| link_to t, tag_path(t) }.join(' ')) %></div>
         <div class="post-show-content">
           <h1>経歴</h1>
-          <%= simple_format(@post.content) %>
+          <%= auto_link(simple_format(@post.content), html: {target: '_blank'}) %>
           <h1>使用した参考書・サービス</h1>
-          <%= simple_format(@post.book) %>
+          <%= auto_link(simple_format(@post.book), html: {target: '_blank'}) %>
           <h1>学習方法・学習時間</h1>
-          <%= simple_format(@post.direction) %>
+          <%= auto_link(simple_format(@post.direction), html: {target: '_blank'}) %>
           <h1>まとめ</h1>
-          <%= simple_format(@post.summary) %>
+          <%= auto_link(simple_format(@post.summary), html: {target: '_blank'}) %>
         </div>
         <div>
           <%= render 'favorites/like_button', post: @post %>
