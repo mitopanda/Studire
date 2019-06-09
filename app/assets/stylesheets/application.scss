@@ -96,9 +96,9 @@ footer {
     margin: 5px 0;
   }
   .home-button {
-    border: 2px solid #0a9cec;
+    border: 2px solid #1b9ef0;
     border-radius: 7px;
-    color: #0a9cec;
+    color: #1b9ef0;
     padding: 7px 15px;
     &:hover {
       background-color: rgba(240, 240, 240, 0.253);
@@ -149,12 +149,12 @@ footer {
 // pagination
 .pagination {
   .page-link {
-    color: $link-color;
+    color: #1b9ef0;
   }
   .page-item.active {
     .page-link {
-      background-color: $link-color;
-      border-color: $link-color;
+      background-color: #1b9ef0;
+      border-color: #1b9ef0;
     }
   }
 }
@@ -306,12 +306,12 @@ footer {
   a {
     color: $light;
     &:hover {
-      color: #0a9cec;
+      color: #1b9ef0;
     }
   }
   .nav-link.active {
-    border-bottom: 3px solid #0a9cec;
-    color: #0a9cec;
+    border-bottom: 3px solid #1b9ef0;
+    color: #1b9ef0;
   }
 }
 
@@ -579,7 +579,7 @@ footer {
 }
 
 .post-show-comment-form-header {
-  background-color: #0a9cec;
+  background-color: #1b9ef0;
   color: #fff;
   padding: 10px;
 }
