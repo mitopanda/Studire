@@ -23,7 +23,7 @@
     </div>
     <div class="col-xs-12 col-md-9 mt-4 mb-4">
       <div>
-        <ul id="myTab" class="nav nav-tabs" role="tablist">
+        <ul id="myTab" class="nav nav-tabs tab-header" role="tablist">
           <li class="nav-item"><%= link_to "#mypost", id: 'mypost-tab', class: 'nav-link active', role: 'tab', data: { toggle: 'tab' }, aria: { controls: "mypost" }, aria: { selected: "true" } do %>投稿 <span class="badge badge-info"><%= @count_posts %></span><% end %></li>
           <li class="nav-item"><%= link_to "#liking", id: 'liking-tab', class: 'nav-link', role: 'tab', data: { toggle: 'tab' }, aria: { controls: "liking" }, aria: { selected: "false" }  do %>いいね <span class="badge badge-info"><%= @count_likes %></span><% end %></li>
           <li class="nav-item"><%= link_to "#followings", id: 'followings-tab', class: 'nav-link', role: 'tab', data: { toggle: 'tab' }, aria: { controls: "followings" }, aria: { selected: "false" } do %>フォロー中 <span class="badge badge-info"><%= @count_followings %></span><% end %></li>

@@ -30,7 +30,7 @@
         <div class="ransack-tag-title"><%= "絞り込み：#{params[:tag]}" %></div>
       <% end %>
       <div>
-        <ul id="myTab" class="nav nav-tabs" role="tablist">
+        <ul id="myTab" class="nav nav-tabs tab-header" role="tablist">
           <li class="nav-item"><%= link_to "#newpost", id: 'newpost-tab', class: 'nav-link active', role: 'tab', data: { toggle: 'tab' }, aria: { controls: "newpost" }, aria: { selected: "true" } do %>新着順<% end %></li>
           <li class="nav-item"><%= link_to "#likingpost", id: 'likingpost-tab', class: 'nav-link', role: 'tab', data: { toggle: 'tab' }, aria: { controls: "likingpost" }, aria: { selected: "false" } do %>人気順<% end %></li>
         </ul>
