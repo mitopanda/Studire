@@ -424,6 +424,14 @@ footer {
   color: $default-color;
 }
 
+.post-edit-destroy {
+  color: $light;
+  margin-right: 4px;
+  &:hover {
+    color: $light;
+  }
+}
+
 .post-show-title {
   margin-top: 10px;
   h1 {

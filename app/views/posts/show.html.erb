@@ -7,8 +7,8 @@
           <%= link_to @post.user.name, user_path(@post.user), class: "mr-1 post-show-user-name" %>
           <span class="text-muted post-index-date mr-4">投稿日<%= @post.created_at.strftime("%Y/%m/%d") %></span>
           <% if current_user == @post.user %>
-            <%= link_to '編集', edit_post_path(@post), class: 'text-right' %>
-            <%= link_to '削除',  @post, method: :delete, data: { confirm: "You sure?" }, class: 'text-right' %>
+            <%= link_to edit_post_path(@post), class: 'post-edit-destroy' do %><i class="fas fa-edit"></i> 編集<% end %>
+            <%= link_to @post, method: :delete, data: { confirm: "You sure?" }, class: 'post-edit-destroy' do %><i class="fas fa-trash-alt"></i> 削除<% end %>
           <% end %>
         </div>
         <div class="post-show-title">
