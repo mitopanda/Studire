@@ -25,8 +25,13 @@
           <h1>まとめ</h1>
           <%= auto_link(simple_format(@post.summary), html: {target: '_blank'}) %>
         </div>
-        <div>
+        <div class="mb-2">
           <%= render 'favorites/like_button', post: @post %>
+        </div>
+        <div class="sharelink">
+          <%= link_to "https://twitter.com/share?url=#{request.url}&text=#{@post.title}", class: 'twitter', title: 'Twitter', target: '_blank' do %><i class="fab fa-twitter"></i>Twitter<% end %>
+          <%= link_to "https://www.facebook.com/sharer/sharer.php?u=#{request.url}&text=#{@post.title}", class: 'facebook', title: 'Facebook', target: '_blank' do %><i class="fab fa-facebook-square"></i>Facebook<% end %>
+          <%= link_to "http://line.me/R/msg/text/?#{request.url}&text=#{@post.title}", class: 'line', title: 'LINE', target: '_blank' do %><i class="fab fa-line"></i>LINE<% end %>
         </div>
       </div>
       <div class="post-show-user-profile">

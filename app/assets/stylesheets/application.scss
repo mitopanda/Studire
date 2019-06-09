@@ -572,3 +572,39 @@ footer {
   display: inline-block;
   font-weight: 600;
 }
+
+// sharelink
+.twitter {
+  color: #fff;
+  background-color: #1ca1f3;
+  border-radius: 2px;
+  padding: 3px 5px;
+  &:hover {
+    background-color: #288fd4;
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+.facebook {
+  color: #fff;
+  background-color: #3b5999;
+  border-radius: 2px;
+  padding: 3px 5px;
+  &:hover {
+    background-color: #263f74;
+    color: #fff;
+    text-decoration: none;
+  }
+}
+.line {
+  color: #fff;
+  background-color: #1dcd00;
+  border-radius: 2px;
+  padding: 3px 5px;
+  &:hover {
+    background-color: #17af00;
+    color: #fff;
+    text-decoration: none;
+  }
+}
