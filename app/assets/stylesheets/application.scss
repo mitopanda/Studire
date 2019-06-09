@@ -48,8 +48,65 @@ p {
   line-height: 2;
 }
 
+footer {
+  background-color: #fff;
+  border-top: 1px solid #e0e4e7;
+  border-radius: 2px;
+  margin-top: 20px;
+  text-align: center;
+  p {
+    color: $light;
+    font-size: 0.7rem;
+    margin: 0;
+    padding: 5px 0;
+  }
+}
+
 // home
-.home-title {
+.jumbotron {
+  background-image: url("header.jpg");
+  background-size: cover;
+}
+
+.jumbotron-extend {
+  position: relative;
+  height: 70vh;
+  min-height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-header {
+  text-align: center;
+  h1 {
+    color: #ffffff;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  p {
+    color: rgb(196, 196, 196);
+  }
+  .home-button-wrapper {
+    margin: 20px;
+  }
+  .home-separator {
+    color: #fff;
+    margin: 5px 0;
+  }
+  .home-button {
+    border: 2px solid #1b9ef0;
+    border-radius: 7px;
+    color: #1b9ef0;
+    padding: 7px 15px;
+    &:hover {
+      background-color: rgba(240, 240, 240, 0.253);
+    }
+  }
+}
+
+.ransack-tag-title {
   background-color: #fff;
   border-left: 4px solid #0075cf;
   color: $default-color;
@@ -59,31 +116,6 @@ p {
   padding: 10px 20px;
 }
 
-.jumbotron {
-  background-image: url("header.jpg");
-  background-size: cover;
-}
-
-.jumbotron-extend {
-  position: relative;
-  height: 35vh;
-  min-height: 200px;
-}
-
-.home-top {
-  width: 100%;
-  .home-text {
-    margin-top: 20px;
-  }
-  h1 {
-    color: #ffffff;
-    margin-left: 10px;
-  }
-  .home-link {
-    text-align: right;
-  }
-}
-
 .tag-cloud {
   @include background;
   padding: 10px 20px;
@@ -91,7 +123,7 @@ p {
     background-color: #eeeeee;
     border: 1px;
     border-radius: 5px;
-    color: $default-color;
+    color: $link-color;
     display: inline-block;
     font-size: 0.9rem;
     font-weight: 600;
@@ -99,7 +131,7 @@ p {
     padding: 2px 8px;
     &:hover {
       background-color: #dadada;
-      color: $default-color;
+      color: $link-color;
       text-decoration: none;
     }
   }
@@ -117,14 +149,26 @@ p {
 // pagination
 .pagination {
   .page-link {
-    color: $link-color;
+    color: #1b9ef0;
   }
   .page-item.active {
     .page-link {
-      background-color: $link-color;
-      border-color: $link-color;
+      background-color: #1b9ef0;
+      border-color: #1b9ef0;
     }
   }
+}
+
+//navbar
+
+.btn-search {
+  background-color: #fff;
+}
+
+.nav-form {
+  border: solid 2px #e0e4e7;
+  border-radius: 7px;
+  padding: 5px;
 }
 
 // user
@@ -258,13 +302,20 @@ p {
   }
 }
 
-#myTab {
+.tab-header {
   a {
-    color: $link-color;
+    color: $light;
+    &:hover {
+      color: #1b9ef0;
+    }
+  }
+  .nav-link.active {
+    border-bottom: 3px solid #1b9ef0;
+    color: #1b9ef0;
   }
 }
 
-#myTabContent {
+.my-tab-content {
   background-color: #fff;
   border: solid hsl(206, 13%, 89%);
   border-radius: 2px;
@@ -330,6 +381,7 @@ p {
 
 .post-media-title {
   color: $default-color;
+  font-size: 1.05rem;
   font-weight: 700;
   &:visited {
     color: $visited-color;
@@ -378,6 +430,14 @@ p {
 
 .post-show-user-name {
   color: $default-color;
+}
+
+.post-edit-destroy {
+  color: $light;
+  margin-right: 4px;
+  &:hover {
+    color: $light;
+  }
 }
 
 .post-show-title {
@@ -519,7 +579,7 @@ p {
 }
 
 .post-show-comment-form-header {
-  background-color: #0a9cec;
+  background-color: #1b9ef0;
   color: #fff;
   padding: 10px;
 }
@@ -527,4 +587,40 @@ p {
 .post-show-comment-label {
   display: inline-block;
   font-weight: 600;
+}
+
+// sharelink
+.twitter {
+  color: #fff;
+  background-color: #1ca1f3;
+  border-radius: 2px;
+  padding: 3px 5px;
+  &:hover {
+    background-color: #288fd4;
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+.facebook {
+  color: #fff;
+  background-color: #3b5999;
+  border-radius: 2px;
+  padding: 3px 5px;
+  &:hover {
+    background-color: #263f74;
+    color: #fff;
+    text-decoration: none;
+  }
+}
+.line {
+  color: #fff;
+  background-color: #1dcd00;
+  border-radius: 2px;
+  padding: 3px 5px;
+  &:hover {
+    background-color: #17af00;
+    color: #fff;
+    text-decoration: none;
+  }
 }

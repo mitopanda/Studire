@@ -1,13 +1,36 @@
-<% if user_signed_in? %>
+<% unless user_signed_in? %>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="jumbotron jumbotron-fluid jumbotron-extend">
+      <div class="container home-header">
+        <h1>Studireへようこそ</h1>
+        <p>Studireは学習内容と学習方法のシェアサービスです。</p>
+        <p>分野は問わず学んだこと、それを学んだ方法を共有して学びのテンプレートを作り上げましょう。</p>
+        <div class="home-button-wrapper">
+          <%= link_to '会員登録', new_user_registration_path, class: 'btn home-button' %>
+          <%= link_to 'ログイン', new_user_session_path, class: 'btn home-button' %>
+        </div>
+        <div class="home-separator">または</div>
+        <div class="sns-login">
+          <%= link_to user_twitter_omniauth_authorize_path, class: 'btn btn-lg btn-twitter' do %>
+            <i class="fab fa-twitter fa-1x"></i> Twitterアカウントで登録
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+<div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-9 mt-4 mb-4 order-md-2">
       <% if params[:q] %>
-        <div class="home-title"><%= "#{params[:q]}の検索結果" %></div>
+        <div class="ransack-tag-title"><%= "#{params[:q]}の検索結果" %></div>
       <% elsif params[:tag] %>
-        <div class="home-title"><%= "絞り込み：#{params[:tag]}" %></div>
+        <div class="ransack-tag-title"><%= "絞り込み：#{params[:tag]}" %></div>
       <% end %>
       <div>
-        <ul id="myTab" class="nav nav-tabs" role="tablist">
+        <ul id="myTab" class="nav nav-tabs tab-header" role="tablist">
           <li class="nav-item"><%= link_to "#newpost", id: 'newpost-tab', class: 'nav-link active', role: 'tab', data: { toggle: 'tab' }, aria: { controls: "newpost" }, aria: { selected: "true" } do %>新着順<% end %></li>
           <li class="nav-item"><%= link_to "#likingpost", id: 'likingpost-tab', class: 'nav-link', role: 'tab', data: { toggle: 'tab' }, aria: { controls: "likingpost" }, aria: { selected: "false" } do %>人気順<% end %></li>
         </ul>
@@ -30,14 +53,4 @@
       </div>
     </div>
   </div>
-<% else %>
-  <div class="home-top jumbotron jumbotron-fluid jumbotron-extend">
-    <div class="container home-text">
-      <h1>Studireへようこそ</h1>
-      <%= link_to '会員登録はこちら', new_user_registration_path, class: 'btn btn-lg btn-primary home-link' %>
-    </div>
-  </div>
-  <div class="home-render">
-    <%= render 'posts/posts', posts: @posts %>
-  </div>
-<% end %>
+</div>
