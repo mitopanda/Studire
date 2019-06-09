@@ -20,7 +20,7 @@
 
 // formの文字数のカウンター
 $(function() {
-  $("#profile-text").keyup(function() {
+  $("#profile-text").bind("keydown keyup keypress change", function() {
     var count = $(this).val().length;
     if (count <= 200) {
       $("#counter").removeClass("count-danger");
@@ -35,7 +35,7 @@ $(function() {
 });
 
 $(function() {
-  $("#post-count").keyup(function() {
+  $("#post-count").bind("keydown keyup keypress change", function() {
     var count = $(this).val().length;
     if (count <= 50) {
       $("#counter").removeClass("count-danger");
