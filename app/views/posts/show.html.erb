@@ -57,6 +57,9 @@
           <div>
             <%= image_tag comment.user.image.to_s, class: 'mr-3 post-user-image', :size => '40x40' %>
             <%= link_to comment.user.name, user_path(comment.user) %> <span class="text-muted">投稿日<%= comment.created_at.strftime("%Y-%m-%d %H:%M") %></span>
+            <% if comment.user_id == current_user.id %>
+              <%= link_to post_comment_path(@post, comment), method: :delete, data: { confirm: "You sure?" }, class: 'comment-destroy' do %><i class="fas fa-trash-alt"></i> 削除<% end %>
+            <% end %>
           </div>
           <div class="post-comment-content">
             <%= simple_format(comment.content) %>

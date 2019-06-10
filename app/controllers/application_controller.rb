@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :image, :profile])
       devise_parameter_sanitizer.permit(:account_update, keys: [:name, :profile, :image_cache, :remove_image, :crop_x, :crop_y, :crop_w, :crop_h, :image])
     end
+    
   private
     def counts(user)
       @count_posts = user.posts.count
@@ -23,8 +24,8 @@ class ApplicationController < ActionController::Base
       @q = Post.ransack(query)
       @posts = @q.result.page(params[:page])
       @like_counts = Favorite.group(:post_id).order('count_post_id DESC').count(:post_id).keys
-      @like_count_post_array = @like_counts.map{|id| Post.find(id)}
-      @like_posts = Post.where(id: @like_count_post_array.map{ |post| post.id }) # ActiveRecord::Relationに戻す
+      @like_count_posts_array = @like_counts.map{|id| Post.find(id)}
+      @like_posts = Post.where(id: @like_count_posts_array.map{ |post| post.id }) # ActiveRecord::Relationに戻す
       @liking = @like_posts.ransack(query).result.page(params[:page]).per(15)
     end
 end

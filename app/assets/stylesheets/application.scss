@@ -535,6 +535,14 @@ footer {
   hr {
     margin: 20px 0;
   }
+
+  .comment-destroy {
+    color: $light;
+    margin-right: 4px;
+    &:hover {
+      color: $light;
+    }
+  }
   .post-comment-content {
     position: relative;
     display: block;

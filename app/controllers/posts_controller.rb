@@ -28,7 +28,6 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = current_user.posts.find(params[:id])
     if @post.update(post_params)
       flash[:notice] = '投稿の編集に成功しました。'
       redirect_to @post
