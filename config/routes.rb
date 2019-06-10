@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   end
   resources :posts do
     # コメント機能　destroy追加予定
-    resources :comments, only: [:create]
+    resources :comments, only: [:create, :destroy]
   end
   # フォロー機能
   resources :relationships, only: [:create, :destroy]
