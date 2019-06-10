@@ -47,7 +47,7 @@
     <div class="col-xs-12 col-md-3 mt-4 order-md-1">
       <p class="tag-title">タグ一覧</p>
       <div class="tag-cloud">
-        <% tag_cloud(@tags, %w(css1)) do |tag, css_class| %>
+        <% tag_cloud(@tags_counts, %w(css1)) do |tag, css_class| %>
           <%= link_to "#{tag.name}(#{tag.count})", tag_path(tag.name), :class => css_class %>
         <% end %>
       </div>
