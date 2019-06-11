@@ -1,0 +1,18 @@
+ja:
+  activerecord:
+    models:
+      post: 投稿
+    attributes:
+      post:
+        title: タイトル
+        content: 学習内容
+        book: 教材
+        direction: 学習方法
+        summary: まとめ
+  activerecord:
+    models:
+      user: ユーザ
+    attributes:
+      user:
+        name: ユーザ名
+        profile: プロフィール
