@@ -80,7 +80,6 @@
         </div>
         <div></div>
           <%= form_for [@post, @comment] do |f| %>
-            <%= render 'layouts/error_messages', model: f.object %>
             <%= f.text_area :content, class: 'form-control', rows: '5', id: 'comment', placeholder: 'コメントを入力してください。' %>
             <%= f.submit '投稿', class: 'btn btn-outline-primary btn-block' %>
           <% end %>
