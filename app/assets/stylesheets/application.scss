@@ -62,6 +62,17 @@ footer {
   }
 }
 
+#error_explanation {
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  h2 {
+    font-size: 1.2rem;
+  }
+}
+
 // home
 .jumbotron {
   background-image: url("header.jpg");
