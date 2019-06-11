@@ -4,6 +4,10 @@ class ApplicationController < ActionController::Base
   add_flash_types :success, :info, :warning, :danger
   protect_from_forgery with: :exception
 
+  def after_sign_in_path_for(resource)
+    root_path
+  end
+
   protected
     
     def configure_permitted_parameters
