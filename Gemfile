@@ -66,13 +66,15 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #追加gem
 gem 'kaminari'
+
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
-gem 'font-awesome-sass', '~> 5.2.0'
 
 gem 'rails-i18n'
+
 gem 'carrierwave'
 gem 'mini_magick'
+
 gem 'acts-as-taggable-on'
 gem 'ransack'
 
@@ -84,5 +86,6 @@ gem 'omniauth-twitter'
 gem 'dotenv-rails'
 
 gem 'jquery-ui-rails'
-	
 gem 'rails_autolink'
+gem 'cancancan'
+gem 'rails_admin'
