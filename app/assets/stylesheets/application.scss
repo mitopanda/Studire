@@ -607,6 +607,19 @@ footer {
 }
 
 // liking
+.likes-wrapper {
+  @include background;
+  padding: 30px 10px;
+}
+
+.likes-home-link {
+  margin-bottom: 15px;
+  a {
+    color: #ec6767;
+    font-size: 0.9rem;
+  }
+}
+
 .likes-title {
   color: $default-color;
   font-weight: 600;
