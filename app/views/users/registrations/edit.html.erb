@@ -24,8 +24,8 @@
         
       <div class="form-group" >
           <%= f.label :profile, '自己紹介', class: 'user-edit-label' %>
-          <%= f.text_area :profile, placeholder: '200文字以内。',rows: "5", class: "form-control profile", id: "profile-text" %>
-          <p id="counter" class="text-right count-default">0文字</p>
+          <%= f.text_area :profile, placeholder: '200文字以内。',rows: "5", class: "form-control profile", id: "profile-count" %>
+          <div id="user-counter" class="text-right count-default">0文字</div>
       </div>
 
     <!--<div class="field form-group">
