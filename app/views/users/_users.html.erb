@@ -2,7 +2,7 @@
   <ul class="list-unstyled user-media">
     <% users.each do |user| %>
     <li class="media">
-      <%= image_tag user.image.to_s, class: 'mr-3', :size => '50x50' %>
+      <%= image_tag user.image.to_s, class: 'mr-3 post-user-image', :size => '50x50' %>
       <div class="media-body user-media-content">
         <div class="mt-0">
           <%= link_to "#{user.name}", user_path(user) %>
