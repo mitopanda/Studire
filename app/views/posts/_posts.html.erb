@@ -11,6 +11,7 @@
             <%= link_to post.title, post_path(post), class: 'post-media-title' %>
             <div class="post-index-tag">
               <span><i class="fas fa-thumbs-up"></i>&nbsp;<%= post.liked_users.count %></span> 
+              <span><i class="far fa-comment"></i>&nbsp;<%= post.comments.count %></span>
               <span>&nbsp;<i class="fas fa-tags"></i>&nbsp;<%= raw(post.tag_list.map { |t| link_to t, tag_path(t) }.join(' ')) %></span>
             </div>
           </div>
