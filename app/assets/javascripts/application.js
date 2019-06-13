@@ -19,32 +19,32 @@
 //= require bootstrap-sprockets
 
 // formの文字数のカウンター
-$(function() {
-  $("#profile-text").bind("keydown keyup keypress change", function() {
-    var count = $(this).val().length;
-    if (count <= 200) {
-      $("#counter").removeClass("count-danger");
-      $("#counter").addClass("count-default");
-      $("#counter").text(count + "文字");
-    } else if (count > 200) {
-      $("#counter").text(count + "文字");
-      $("#counter").removeClass("count-default");
-      $("#counter").addClass("count-danger");
+$(document).on("turbolinks:load", function() {
+  $("#profile-count").on("keydown keyup keypress change", function() {
+    var countNum = $(this).val().length;
+    $("#user-counter").text(countNum + "文字");
+    console.log(countNum);
+    if (countNum > 200) {
+      $("#user-counter").removeClass("count-default");
+      $("#user-counter").addClass("count-danger");
+    } else {
+      $("#user-counter").removeClass("count-danger");
+      $("#user-counter").addClass("count-default");
     }
   });
 });
 
-$(function() {
-  $("#post-count").bind("keydown keyup keypress change", function() {
+$(document).on("turbolinks:load", function() {
+  $("#post-count").on("keydown keyup keypress change", function() {
     var count = $(this).val().length;
-    if (count <= 50) {
-      $("#counter").removeClass("count-danger");
-      $("#counter").addClass("count-default");
-      $("#counter").text(count + "文字");
-    } else if (count > 50) {
-      $("#counter").text(count + "文字");
-      $("#counter").removeClass("count-default");
-      $("#counter").addClass("count-danger");
+    $("#post-counter").text(count + "文字");
+    console.log(count);
+    if (count > 50) {
+      $("#post-counter").removeClass("count-default");
+      $("#post-counter").addClass("count-danger");
+    } else {
+      $("#post-counter").removeClass("count-danger");
+      $("#post-counter").addClass("count-default");
     }
   });
 });
