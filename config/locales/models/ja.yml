@@ -2,6 +2,7 @@ ja:
   activerecord:
     models:
       post: 投稿
+      user: ユーザ
     attributes:
       post:
         title: タイトル
@@ -9,10 +10,6 @@ ja:
         book: 教材
         direction: 学習方法
         summary: まとめ
-  activerecord:
-    models:
-      user: ユーザ
-    attributes:
       user:
         name: ユーザ名
         profile: プロフィール
