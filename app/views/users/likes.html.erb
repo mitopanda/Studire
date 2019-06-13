@@ -1,0 +1,28 @@
+<% if @liking.any? %>
+<div class="container">
+  <div class="col-xs-12 col-md-8 offset-md-2 mt-4 mb-4 user-wrapper">
+    <ul class="list-unstyled post-media">
+      <% @liking.each do |post| %>
+        <li class="media">
+          <%= image_tag post.user.image.to_s, class: 'mr-3 post-user-image', :size => '50x50' %>
+          <div class="media-body likes-content">
+            <div class="mt-0">
+              <%= link_to post.title, post_path(post), class: 'likes-title' %>
+              <br>
+              <%= link_to post.content.truncate(100), post_path(post), class: 'likes-content' %>
+              <div class="likes-footer">
+                by<%= link_to post.user.name, user_path(post.user), class: 'likes-name' %>
+                <span class="text-muted post-index-date">投稿日<%= post.created_at.strftime("%Y/%m/%d") %></span>
+                <span><i class="fas fa-thumbs-up"></i>&nbsp;<%= post.liked_users.count %></span> 
+                <span class="post-index-tag">&nbsp;<i class="fas fa-tags"></i>&nbsp;<%= raw(post.tag_list.map { |t| link_to t, tag_path(t) }.join(' ')) %></span>
+              </div>
+            </div>
+          </div>
+        </li>
+        <hr>
+      <% end %>
+      <%= paginate @liking %>
+    </ul>
+  </div>
+</div>
+<% end %>
