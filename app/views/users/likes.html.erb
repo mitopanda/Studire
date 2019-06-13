@@ -35,7 +35,8 @@
                   <div class="likes-footer">
                     by<%= link_to post.user.name, user_path(post.user), class: 'likes-name' %>
                     <span class="text-muted post-index-date">投稿日<%= post.created_at.strftime("%Y/%m/%d") %></span>
-                    <span><i class="fas fa-thumbs-up"></i>&nbsp;<%= post.liked_users.count %></span> 
+                    <span><i class="fas fa-thumbs-up"></i>&nbsp;<%= post.liked_users.count %></span>
+                    <span><i class="far fa-comment"></i>&nbsp;<%= post.comments.count %></span>
                     <span class="post-index-tag">&nbsp;<i class="fas fa-tags"></i>&nbsp;<%= raw(post.tag_list.map { |t| link_to t, likes_tag_path(t) }.join(' ')) %></span>
                   </div>
                 </div>

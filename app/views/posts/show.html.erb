@@ -49,7 +49,7 @@
       <% if @comments.length > 0 %>
       <div>
         <div class="post-comment-media-header mt-4">
-          <h4><%= @comments.count %>件のコメント</h4>
+          <h4><i class="far fa-comment"></i><%= @comments.count %>件のコメント</h4>
         </div>
         <% @comments.each do |comment| %>
         <div class="post-comment-media">
@@ -76,7 +76,7 @@
       <div class="form-group post-show-comment-area">
         <div class="post-show-comment-form-header">
           <%= image_tag current_user.image.to_s, class: 'mr-1 post-user-image', :size => '40x40' %>
-          <div class="post-show-comment-label">コメントする</div>
+          <div class="post-show-comment-label"><i class="far fa-comment"></i>コメントする</div>
         </div>
         <div></div>
           <%= form_for [@post, @comment] do |f| %>
