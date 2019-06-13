@@ -606,6 +606,44 @@ footer {
   font-weight: 600;
 }
 
+// liking
+.likes-wrapper {
+  @include background;
+  padding: 30px 10px;
+}
+
+.likes-home-link {
+  margin-bottom: 15px;
+  a {
+    color: #ec6767;
+    font-size: 0.9rem;
+  }
+}
+
+.likes-title {
+  color: $default-color;
+  font-weight: 600;
+  &:hover {
+    color: $default-color;
+  }
+}
+
+.likes-content {
+  color: $default-color;
+  font-size: 0.9rem;
+  &:hover {
+    color: $default-color;
+    text-decoration: none;
+  }
+}
+
+.likes-footer {
+  font-size: 0.8rem;
+  .likes-name {
+    color: $light;
+  }
+}
+
 // sharelink
 .twitter {
   color: #fff;
@@ -630,6 +668,7 @@ footer {
     text-decoration: none;
   }
 }
+
 .line {
   color: #fff;
   background-color: #1dcd00;

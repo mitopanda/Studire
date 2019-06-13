@@ -20,8 +20,6 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show] do
     member do
-      get :followings
-      get :followers
       get :likes
     end
   end
@@ -34,4 +32,5 @@ Rails.application.routes.draw do
   # お気に入り
   resources :favorites, only: [:create, :destroy]
   get 'tags/:tag', to: 'home#index', as: :tag
+  get 'likes/tags/:tag', to: 'users#likes', as: :likes_tag
 end
