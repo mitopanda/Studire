@@ -1,0 +1,30 @@
+FROM ruby:2.6.2
+
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - \
+    && apt-get install -y nodejs
+RUN apt-get update -qq && apt-get install -y \
+    --no-install-recommends \
+    nodejs \
+    vim \
+    postgresql-client && \
+    rm -rf /var/lib/apt/lists/*
+RUN mkdir /studire
+WORKDIR /studire
+COPY Gemfile /studire/Gemfile
+COPY Gemfile.lock /studire/Gemfile.lock
+RUN bundle install
+COPY . /studire
+
+EXPOSE 3000
+
+RUN npm install yarn -g
+
+ENV RAILS_ENV production
+
+ARG RAILS_MASTER_KEY
+ENV RAILS_MASTER_KEY $RAILS_MASTER_KEY
+
+RUN RAILS_ENV=production bundle exec rake assets:precompile
+RUN rm -f tmp/pids/server.pid
+
+CMD ["bundle", "exec", "rails", "s", "puma", "-b", "0.0.0.0", "-p", "3000", "-e", "production"]
