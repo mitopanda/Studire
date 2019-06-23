@@ -42,15 +42,13 @@ jobs:
           key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
       - restore_cache:
           key: v1-bundle-{{ checksum "Gemfile.lock" }}
-      - run: mv ./config/database.yml.org ./config/database.yml
+      - run: cp ./config/database.yml.org ./config/database.yml
       - run: bundle --path vendor/bundle
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
       - run:
           name: Run tests
           command: bundle exec rspec
-    pre:
-      - cp ./config/database.yml.org ./config/database.yml
 
   deploy:
     docker:
