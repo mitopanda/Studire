@@ -27,13 +27,14 @@ jobs:
           key: v1-bundle-{{ checksum "Gemfile.lock" }}
           paths:
             - ~/studire/vendor/bundle
+    pre:
+      - cp ./config/database.yml ./config/database.yml.org
 
   test:
     docker:
       - image: circleci/ruby:2.6.2-node-browsers
         environment:
           RAILS_ENV: test
-          DB_HOST: localhost
       - image: circleci/postgres:11.2
     working_directory: ~/studire
     steps:
@@ -41,12 +42,15 @@ jobs:
           key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
       - restore_cache:
           key: v1-bundle-{{ checksum "Gemfile.lock" }}
+      - run: mv ./config/database.yml.org ./config/database.yml
       - run: bundle --path vendor/bundle
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
       - run:
           name: Run tests
           command: bundle exec rspec
+    pre:
+      - cp ./config/database.yml.org ./config/database.yml
 
   deploy:
     docker:
