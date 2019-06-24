@@ -33,7 +33,12 @@ jobs:
       - image: circleci/ruby:2.6.2-node-browsers
         environment:
           RAILS_ENV: test
+          DB_HOST: 127.0.0.1
       - image: circleci/postgres:11.2
+        environment:
+          POSTGRES_USER: postgres
+          POSTGRES_DB: studire_test
+          POSTGRES_PASSWORD: ""
     working_directory: ~/studire
     steps:
       - restore_cache:
