@@ -22,7 +22,7 @@ jobs:
           keys:
             - v1-bundle-{{ checksum "Gemfile.lock" }}
             - v1-bundle
-      - run: bundle install --path vendor/bundle
+      - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
       - save_cache:
           key: v1-bundle-{{ checksum "Gemfile.lock" }}
           paths:
@@ -33,12 +33,13 @@ jobs:
       - image: circleci/ruby:2.6.2-node-browsers
         environment:
           RAILS_ENV: test
-          DB_HOST: 127.0.0.1
+          DB_HOST: 127.0.0.
+          DB_USERNAME: "postgres"
+          DB_PASSWORD: ""
       - image: circleci/postgres:11.2
         environment:
           POSTGRES_USER: postgres
           POSTGRES_DB: studire_test
-          POSTGRES_PASSWORD: ""
     working_directory: ~/studire
     steps:
       - restore_cache:
@@ -48,7 +49,7 @@ jobs:
       - run: rm ./config/database.yml
       - run: mv ./config/database.yml.org ./config/database.yml
       - run: bundle --path vendor/bundle
-      - run: bundle exec rake db:create
+      - run: bundle exec rake db:create RAILS_ENV=test
       - run: bundle exec rake db:schema:load
       - run:
           name: Run tests
