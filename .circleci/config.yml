@@ -28,7 +28,7 @@ jobs:
           paths:
             - ~/studire/vendor/bundle
     pre:
-      - cp ./config/database.yml ./config/database.yml.org
+      - cp /config/database.yml /config/database.yml.org
 
   test:
     docker:
@@ -42,7 +42,8 @@ jobs:
           key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
       - restore_cache:
           key: v1-bundle-{{ checksum "Gemfile.lock" }}
-      - run: cp ./config/database.yml.org ./config/database.yml
+      - run: rm ./config/database.yml
+      - run: mv ./config/database.yml.org ./config/database.yml
       - run: bundle --path vendor/bundle
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
