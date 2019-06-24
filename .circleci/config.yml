@@ -30,7 +30,7 @@ jobs:
 
   test:
     docker:
-      - image: circleci/ruby:2.6.2-node-browsers
+      - image: circleci/ruby:2.6.2-node
         environment:
           RAILS_ENV: test
           DB_HOST: 127.0.0.1
@@ -41,11 +41,9 @@ jobs:
         environment:
           POSTGRES_USER: postgres
           POSTGRES_DB: studire_test
-    chrome:
       - image: selenium/standalone-chrome:3.141.59-dubnium
-        ports: 4444:4444
-        links:
-          - docker
+        environment:
+          ports: 4444:4444
     working_directory: ~/studire
     steps:
       - restore_cache:
