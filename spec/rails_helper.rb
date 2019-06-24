@@ -34,7 +34,7 @@ Capybara.server_port = 3001
 Capybara.register_driver :selenium_remote do |app|
   driver = Capybara::Selenium::Driver.new(
       app,
-      browser: :remote,
+      browser: :chrome,
         desired_capabilities: Selenium::WebDriver::Remote::Capabilities.chrome(
             chromeOptions: {
                 args: [
