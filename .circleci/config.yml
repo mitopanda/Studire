@@ -27,8 +27,6 @@ jobs:
           key: v1-bundle-{{ checksum "Gemfile.lock" }}
           paths:
             - ~/studire/vendor/bundle
-    pre:
-      - cp /config/database.yml /config/database.yml.org
 
   test:
     docker:
@@ -50,6 +48,8 @@ jobs:
       - run:
           name: Run tests
           command: bundle exec rspec
+    pre:
+      - cp /config/database.yml /config/database.yml.org
 
   deploy:
     docker:
