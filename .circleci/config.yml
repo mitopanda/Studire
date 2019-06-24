@@ -41,6 +41,11 @@ jobs:
         environment:
           POSTGRES_USER: postgres
           POSTGRES_DB: studire_test
+    chrome:
+      - image: selenium/standalone-chrome:3.141.59-dubnium
+        ports: 4444:4444
+        links:
+          - docker
     working_directory: ~/studire
     steps:
       - restore_cache:
