@@ -34,7 +34,7 @@ Capybara.server_port = 3001
 Capybara.register_driver :selenium_remote do |app|
   driver = Capybara::Selenium::Driver.new(
       app,
-      browser: :chrome,
+      browser: :remote,
         desired_capabilities: Selenium::WebDriver::Remote::Capabilities.chrome(
             chromeOptions: {
                 args: [
@@ -44,7 +44,8 @@ Capybara.register_driver :selenium_remote do |app|
                     '--disable-dev-shm-usage' # crush回避
                 ]
             }
-        )
+        ),
+        url: ENV.fetch("SELENIUM_URL") { 'http://chrome:4444/wd/hub' }
     )
 end
 
@@ -54,7 +55,8 @@ RSpec.configure do |config|
   end
 
   config.before(:each, type: :system, js: true) do
-    driven_by :chrome_headless
+    driven_by :selenium_remote
+    host! "http://#{Capybara.server_host}:#{Capybara.server_port}"
   end
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
