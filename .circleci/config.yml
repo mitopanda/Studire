@@ -99,9 +99,9 @@ jobs:
           name: "Sevice deploy"
           environment:
           command: |
-            ecs-deploy --cluster stu-cluster --service_name studire \
-              --region ap-northeast-1 --timeout 240 \
-              --image $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/studire_web:$CIRCLE_SHA1
+            ecs-deploy --c stu-cluster --n studire \
+              --r ap-northeast-1 --t 240 \
+              --i $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/studire_web:$CIRCLE_SHA1
 
 workflows:
   version: 2
