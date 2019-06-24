@@ -12,8 +12,6 @@ jobs:
             - ~/studire
 
   bundle_dependencies:
-    pre:
-      - cp /config/database.yml /config/database.yml.org
     docker:
       - image: circleci/ruby:2.6.2-node-browsers
     working_directory: ~/studire
