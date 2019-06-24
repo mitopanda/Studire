@@ -45,7 +45,7 @@ Capybara.register_driver :selenium_remote do |app|
                 ]
             }
         ),
-        url: 'http://chrome:4444/wd/hub',
+        url: ENV.fetch("SELENIUM_URL") { 'http://chrome:4444/wd/hub' }
     )
 end
 

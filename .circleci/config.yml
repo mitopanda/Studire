@@ -36,6 +36,7 @@ jobs:
           DB_HOST: 127.0.0.1
           DB_USERNAME: postgres
           DB_PASSWORD: ""
+          SELENIUM_URL: http://127.0.0.1:4444/wd/hub
       - image: circleci/postgres:11.2
         environment:
           POSTGRES_USER: postgres
