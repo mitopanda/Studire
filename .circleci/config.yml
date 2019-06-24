@@ -33,8 +33,8 @@ jobs:
       - image: circleci/ruby:2.6.2-node-browsers
         environment:
           RAILS_ENV: test
-          DB_HOST: 127.0.0.1
-          DB_USERNAME: "postgres"
+          DB_HOST: db
+          DB_USERNAME: postgres
           DB_PASSWORD: ""
       - image: circleci/postgres:11.2
         environment:

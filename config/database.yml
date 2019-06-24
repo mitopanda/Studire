@@ -56,7 +56,7 @@ development:
 test:
   <<: *default
   database: studire_test
-  host: <%= ENV.fetch("DB_HOST") { 'localhost' } %>
+  host: <%= ENV.fetch("DB_HOST") { 'db' } %>
   username: postgres
   password:
 
