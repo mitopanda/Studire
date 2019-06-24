@@ -19,10 +19,10 @@ jobs:
       - restore_cache:
           key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
       - restore_cache:
-          key:
+          keys:
             - v1-bundle-{{ checksum "Gemfile.lock" }}
             - v1-bundle
-      - run: bundle install --path vendor/bundle
+      - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
       - save_cache:
           key: v1-bundle-{{ checksum "Gemfile.lock" }}
           paths:
@@ -30,19 +30,30 @@ jobs:
 
   test:
     docker:
-      - image: circleci/ruby:2.6.2-node-browsers
+      - image: circleci/ruby:2.6.2-node
         environment:
           RAILS_ENV: test
           DB_HOST: 127.0.0.1
+          DB_USERNAME: postgres
+          DB_PASSWORD: ""
+          SELENIUM_URL: http://127.0.0.1:4444/wd/hub
       - image: circleci/postgres:11.2
+        environment:
+          POSTGRES_USER: postgres
+          POSTGRES_DB: studire_test
+      - image: selenium/standalone-chrome:3.141.59-dubnium
+        environment:
+          ports: 4444:4444
     working_directory: ~/studire
     steps:
       - restore_cache:
           key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
       - restore_cache:
           key: v1-bundle-{{ checksum "Gemfile.lock" }}
+      - run: rm ./config/database.yml
+      - run: mv ./config/database.yml.org ./config/database.yml
       - run: bundle --path vendor/bundle
-      - run: bundle exec rake db:create
+      - run: bundle exec rake db:create RAILS_ENV=test
       - run: bundle exec rake db:schema:load
       - run:
           name: Run tests

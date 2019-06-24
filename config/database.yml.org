@@ -56,9 +56,10 @@ development:
 test:
   <<: *default
   database: studire_test
-  host: <%= ENV.fetch("DB_HOST") { 'db' } %>
+  host: <%= ENV.fetch("DB_HOST") { 'localhost' } %>
   username: postgres
   password:
+  port: 5432
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
