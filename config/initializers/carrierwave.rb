@@ -1,6 +1,5 @@
 CarrierWave.configure do |config|
   if Rails.env.production?
-    config.storage :fog
     config.fog_provider = 'fog/aws'
     config.fog_directory  = 'studire-bucket'
     config.fog_credentials = {
