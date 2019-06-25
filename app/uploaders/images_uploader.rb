@@ -7,8 +7,8 @@ class ImagesUploader < CarrierWave::Uploader::Base
     storage :file
   elsif Rails.env.test?
     storage :file
-  #else
-  #  storage :fog
+  else
+    storage :fog
   end
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -65,17 +65,4 @@ class ImagesUploader < CarrierWave::Uploader::Base
     var = :"@#{mounted_as}_secure_token"
     model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.uuid)
   end
-
-  # private
-  # def crop
-  #   manipulate! do |img|
-  #     crop_x = model.crop_x.to_i
-  #     crop_y = model.crop_y.to_i
-  #     crop_w = model.crop_w.to_i
-  #     crop_h = model.crop_h.to_i
-  #     img.crop "#{crop_w}x#{crop_h}+#{crop_x}+#{crop_y}"
-  #     img = yield(img) if block_given?
-  #     img
-  #   end
-  # end
 end
