@@ -10,7 +10,7 @@
       <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class="text-center">
-      <%= image_tag @user.image.to_s, class: 'user-edit-image-circle mb-3 img-thumbnail' %><br>
+      <%= image_tag @user.image.url, class: 'user-edit-image-circle mb-3 img-thumbnail' %><br>
       </div>
       <div class="form-group">
         <%= f.label :image, 'プロフィール画像', class: 'user-edit-label' %><br>

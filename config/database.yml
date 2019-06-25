@@ -83,7 +83,7 @@ production:
   adapter: postgresql
   encoding: unicode
   database: studire_postgres
-  username: <%= Rails.application.credentials.aws[:RDB_USERNAME] %>
-  password: <%= Rails.application.credentials.aws[:RDB_PASSWORD] %>
-  host: <%= Rails.application.credentials.aws[:RDB_URL] %>
+  username: <%= Rails.application.credentials.aws[:rdb_username] %>
+  password: <%= Rails.application.credentials.aws[:rdb_password] %>
+  host: <%= Rails.application.credentials.aws[:rdb_url] %>
   port: 5432

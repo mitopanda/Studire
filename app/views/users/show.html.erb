@@ -2,7 +2,7 @@
   <div class="row">
     <div class="user-show-aside col-xs-12 col-md-3 mt-4 h-50">
       <div class="user-show-image">
-        <%= image_tag @user.image.to_s, class: 'show-profile-image-circle img-thumbnail' %>
+        <%= image_tag @user.image.url, class: 'show-profile-image-circle img-thumbnail' %>
       </div>
       <div>
         <div class="user-show-name text-center"><%= @user.name %></div>
