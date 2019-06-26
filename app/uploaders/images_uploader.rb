@@ -3,12 +3,10 @@ class ImagesUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
   # Choose what kind of storage to use for this uploader:
-  if Rails.env.development?
-    storage :file
-  elsif Rails.env.test?
-    storage :file
-  elsif Rails.env.production?
+  if Rails.env.production?
     storage :fog
+  else
+    storage :file
   end
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -21,7 +19,7 @@ class ImagesUploader < CarrierWave::Uploader::Base
   end
 
   def filename
-    "#{secure_token}.#{file.extension}" if original_filename.present?
+    "#{secure_token(10)}.#{file.extension}" if original_filename.present?
   end
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url(*args)
@@ -61,8 +59,8 @@ class ImagesUploader < CarrierWave::Uploader::Base
   process resize_to_fill: [200, 200]
 
   protected
-  def secure_token
+  def secure_token(length = 16)
     var = :"@#{mounted_as}_secure_token"
-    model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.uuid)
+    model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.hex(length/2))
   end
 end
