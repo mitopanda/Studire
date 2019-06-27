@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :set_search # ransack
+  before_action :set_search
   add_flash_types :success, :info, :warning, :danger
   protect_from_forgery with: :exception
 
@@ -9,13 +9,14 @@ class ApplicationController < ActionController::Base
   end
 
   protected
-    
+
     def configure_permitted_parameters
       devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :image, :profile])
-      devise_parameter_sanitizer.permit(:account_update, keys: [:name, :profile, :image_cache, :remove_image, :crop_x, :crop_y, :crop_w, :crop_h, :image])
+      devise_parameter_sanitizer.permit(:account_update, keys: [:name, :profile, :image_cache, :remove_image, :image])
     end
     
   private
+  
     def counts(user)
       @count_posts = user.posts.count
       @count_followings = user.followings.count
