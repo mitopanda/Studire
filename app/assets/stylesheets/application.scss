@@ -20,10 +20,10 @@ $light: #818181;
 $link-color: #076fa7;
 $visited-color: #6e6e6e;
 
-@mixin background {
-  background-color: #fff;
-  border: 1px solid #e0e4e7;
-  border-radius: 2px;
+@mixin background($color: #fff, $border: 1px, $bColor: #e0e4e7, $bRadius: 2px) {
+  background-color: $color;
+  border: $border solid $bColor;
+  border-radius: $bRadius;
 }
 
 @mixin circle {
@@ -47,9 +47,7 @@ p {
 }
 
 footer {
-  background-color: #fff;
-  border-top: 1px solid #e0e4e7;
-  border-radius: 2px;
+  @include background();
   margin-top: 20px;
   text-align: center;
   p {
@@ -61,9 +59,7 @@ footer {
 }
 
 #error_explanation {
-  background-color: #f8d7da;
-  border: 1px solid #f5c6cb;
-  border-radius: 10px;
+  @include background(#f8d7da, 1px, #f5c6cb, 10px);
   margin-bottom: 10px;
   padding: 10px;
   h2 {
@@ -78,40 +74,41 @@ footer {
 }
 
 .jumbotron-extend {
-  position: relative;
-  height: 70vh;
-  min-height: 200px;
-  display: flex;
-  justify-content: center;
   align-items: center;
+  display: flex;
+  height: 70vh;
+  justify-content: center;
+  min-height: 200px;
+  position: relative;
+  
 }
 
 .home-header {
   text-align: center;
   h1 {
-    color: #ffffff;
+    color: #fff;
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 20px;
   }
   p {
-    color: rgb(196, 196, 196);
+    color: rgb(231, 231, 231);
   }
   .home-button-wrapper {
     margin: 20px;
+    a {
+      border: 2px solid #129bf0;
+      border-radius: 7px;
+      color: #1b9ef0;
+      padding: 7px 15px;
+      &:hover {
+        background-color: rgba(240, 240, 240, 0.253);
+      }
+    }
   }
   .home-separator {
     color: #fff;
     margin: 5px 0;
-  }
-  .home-button {
-    border: 2px solid #1b9ef0;
-    border-radius: 7px;
-    color: #1b9ef0;
-    padding: 7px 15px;
-    &:hover {
-      background-color: rgba(240, 240, 240, 0.253);
-    }
   }
 }
 
@@ -125,13 +122,20 @@ footer {
   padding: 10px 20px;
 }
 
+.tag-title {
+  border-left: 4px solid #0075cf;
+  color: $default-color;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding: 10px 20px;
+}
+
 .tag-cloud {
   @include background;
   padding: 10px 20px;
   a {
-    background-color: #eeeeee;
-    border: 1px;
-    border-radius: 5px;
+    @include background(#eee, 1px, none, 5px);
     color: $link-color;
     display: inline-block;
     font-size: 0.9rem;
@@ -146,14 +150,7 @@ footer {
   }
 }
 
-.tag-title {
-  border-left: 4px solid #0075cf;
-  color: $default-color;
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  padding: 10px 20px;
-}
+
 
 // pagination
 .pagination {
