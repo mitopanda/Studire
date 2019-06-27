@@ -67,6 +67,33 @@ footer {
   }
 }
 
+// pagination
+.pagination {
+  .page-link {
+    color: #1b9ef0;
+  }
+  .page-item.active {
+    .page-link {
+      background-color: #1b9ef0;
+      border-color: #1b9ef0;
+    }
+  }
+}
+
+
+//検索フォーム
+.nav-form {
+  @include background(none, 2px, #e0e4e7, 7px);
+  padding: 5px;
+}
+
+
+.search-btn {
+  background-color: #fff;
+}
+
+
+
 // home
 .jumbotron {
   background-image: url("header.jpg");
@@ -80,7 +107,6 @@ footer {
   justify-content: center;
   min-height: 200px;
   position: relative;
-  
 }
 
 .home-header {
@@ -148,33 +174,6 @@ footer {
       text-decoration: none;
     }
   }
-}
-
-
-
-// pagination
-.pagination {
-  .page-link {
-    color: #1b9ef0;
-  }
-  .page-item.active {
-    .page-link {
-      background-color: #1b9ef0;
-      border-color: #1b9ef0;
-    }
-  }
-}
-
-//navbar
-
-.btn-search {
-  background-color: #fff;
-}
-
-.nav-form {
-  border: solid 2px #e0e4e7;
-  border-radius: 7px;
-  padding: 5px;
 }
 
 // user
