@@ -8,6 +8,10 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 50 }
   has_many :posts, dependent: :destroy
   has_many :comments
+
+  # carrierwave
+  mount_uploader :image, ImagesUploader
+  
   # relationships
   has_many :relationships, dependent: :destroy
   has_many :followings, through: :relationships, source: :follow
