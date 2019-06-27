@@ -30,14 +30,9 @@
       <% end %>
       からお願いいたします。
       </p>
-      <!--<p>パスワードをお忘れの方は
-      <%#- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-        <%#= link_to "こちらへ。", new_password_path(resource_name) %><br />
-      <%# end %>
-      </p> %>-->
     </div>
     <hr>
-    <%#= render "users/shared/links" %>
+    
     <div class="sns-login">
       <%= link_to user_twitter_omniauth_authorize_path, class: 'btn btn-lg btn-twitter w-100' do %>
         <i class="fab fa-twitter fa-1x"></i> Twitterアカウントでログイン

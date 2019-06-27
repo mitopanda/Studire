@@ -1,21 +1,23 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-8 offset-md-2 mt-4 mb-4">
-        <% if params[:q] %>
-          <div class='likes-home-link'><%= link_to likes_user_path(current_user) do %><i class="fas fa-backward"></i> 一覧へ戻る<% end %></div>
-          <div class="ransack-tag-title"><%= "いいね内検索：#{params[:q]}" %></div>
-        <% elsif params[:tag] %>
-          <div class='likes-home-link'><%= link_to likes_user_path(current_user) do %><i class="fas fa-backward"></i> 一覧へ戻る<% end %></div>
-          <div class="ransack-tag-title"><%= "いいね内タグ：#{params[:tag]}" %></div>
-        <% else %>
-          <div class="ransack-tag-title">いいね一覧</div>
+      <% if params[:q] %>
+        <div class='likes-home-link'><%= link_to likes_user_path(current_user) do %><i class="fas fa-backward"></i>
+          一覧へ戻る<% end %></div>
+        <div class="ransack-tag-title"><%= "いいね内検索：#{params[:q]}" %></div>
+      <% elsif params[:tag] %>
+        <div class='likes-home-link'><%= link_to likes_user_path(current_user) do %><i class="fas fa-backward"></i>
+          一覧へ戻る<% end %></div>
+        <div class="ransack-tag-title"><%= "いいね内タグ：#{params[:tag]}" %></div>
+      <% else %>
+        <div class="ransack-tag-title">いいね一覧</div>
+      <% end %>
+      <%= form_tag(likes_user_path(current_user),method: :get, enforce_utf8: false, class: 'form-inline mr-sm-2 ')  do %>
+        <%= text_field_tag :q, params[:q], placeholder: 'いいね内検索', class: "nav-form mr-1" %>
+        <%= button_tag type: 'submit', name: nil, class: 'btn btn-search' do %>
+          <i class="fas fa-search"></i>
         <% end %>
-        <%= form_tag(likes_user_path(current_user),method: :get, enforce_utf8: false, class: 'form-inline mr-sm-2 ')  do %>
-          <%= text_field_tag :q, params[:q], placeholder: 'いいね内検索', class: "nav-form mr-1" %>
-            <%= button_tag type: 'submit', name: nil, class: 'btn btn-search' do %>
-              <i class="fas fa-search"></i>
-            <% end %>
-        <% end %>
+      <% end %>
       <% if @liking.any? %>
       <div class="likes-wrapper mt-4">
         <ul class="list-unstyled post-media">
@@ -32,7 +34,8 @@
                   <span class="text-muted post-index-date">投稿日<%= post.created_at.strftime("%Y/%m/%d") %></span>
                   <span><i class="fas fa-thumbs-up"></i>&nbsp;<%= post.liked_users.count %></span>
                   <span><i class="far fa-comment"></i>&nbsp;<%= post.comments.count %></span>
-                  <span class="post-index-tag">&nbsp;<i class="fas fa-tags"></i>&nbsp;<%= raw(post.tag_list.map { |t| link_to t, likes_tag_path(t) }.join(' ')) %></span>
+                  <span class="post-index-tag">&nbsp;<i
+                      class="fas fa-tags"></i>&nbsp;<%= raw(post.tag_list.map { |t| link_to t, likes_tag_path(t) }.join(' ')) %></span>
                 </div>
               </div>
             </div>

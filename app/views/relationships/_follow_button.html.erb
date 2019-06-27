@@ -6,8 +6,8 @@
     <% end %>
   <% else %>
     <%= form_for(current_user.relationships.build) do |f| %>
-        <%= hidden_field_tag :follow_id, user.id %>
-        <%= button_tag '<i class="fas fa-user-plus"></i>フォロー'.html_safe, type: 'submit', class: 'follow-button' %>
-      <% end %>
+      <%= hidden_field_tag :follow_id, user.id %>
+      <%= button_tag '<i class="fas fa-user-plus"></i>フォロー'.html_safe, type: 'submit', class: 'follow-button' %>
+    <% end %>
   <% end %>
 <% end %>
