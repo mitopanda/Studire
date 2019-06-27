@@ -1,12 +1,7 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  get 'home/index'
-
   root to: "home#index"
-
-  get '/health' => 'elb#health' # ヘルスチェック
-
   # devise
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
@@ -25,14 +20,17 @@ Rails.application.routes.draw do
       get :likes
     end
   end
+
   resources :posts do
-    # コメント機能　destroy追加予定
     resources :comments, only: [:create, :destroy]
   end
-  # フォロー機能
+  
   resources :relationships, only: [:create, :destroy]
-  # お気に入り
   resources :favorites, only: [:create, :destroy]
+  
   get 'tags/:tag', to: 'home#index', as: :tag
   get 'likes/tags/:tag', to: 'users#likes', as: :likes_tag
+
+  # ヘルスチェック用簡易ページ
+  get '/health' => 'elb#health'
 end
