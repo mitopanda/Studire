@@ -8,10 +8,10 @@ class Post < ApplicationRecord
   validates :direction, presence:true, length: { maximum: 2000 }
   validates :summary, presence:true, length: { maximum: 2000 }
 
-  #favorites
+  # favorites
   has_many :favorites
   has_many :liked_users, through: :favorites, source: :user
 
-  #タグ用
+  # acts_as_taggable_onの関連付け
   acts_as_taggable
 end
