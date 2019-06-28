@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       @search = @likes.ransack(query)
       @liking = @search.result.order('created_at DESC').page(params[:page]).per(10)
     elsif params[:tag]
-      @liking = @likes.tagged_with(params[:tag]).order('created_at DESC').page(params[:page]).per(15)
+      @liking = @likes.tagged_with(params[:tag]).order('created_at DESC').page(params[:page]).per(10)
     else
       @liking = @likes.order('created_at DESC').page(params[:page]).per(10)
     end

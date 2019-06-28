@@ -31,7 +31,7 @@
               <br>
               <%= link_to post.content.truncate(100), post_path(post), class: 'likes-content' %>
               <div class="likes-footer">
-                by<%= link_to post.user.name, user_path(post.user), class: 'likes-name' %>
+                <span>by<%= link_to post.user.name, user_path(post.user), class: 'likes-name' %></span>
                 <span class="text-muted post-index-date">投稿日<%= post.created_at.strftime("%Y/%m/%d") %></span>
                 <span><i class="fas fa-thumbs-up"></i>&nbsp;<%= post.liked_users.count %></span>
                 <span><i class="far fa-comment"></i>&nbsp;<%= post.comments.count %></span>
@@ -42,9 +42,9 @@
           <hr>
           <% end %>
           <%= paginate @liking %>
-        </ul>
+        </ul>   
       </div>
+      <% end %>
     </div>
   </div>
 </div>
-<% end %>
