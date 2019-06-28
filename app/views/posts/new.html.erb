@@ -4,45 +4,35 @@
       <div class="text-center">
         <div class="post-new-edit-title">新規投稿</div>
       </div>
-
       <%= form_for(@post) do |f| %>
-        <%= render 'layouts/error_messages', model: f.object %>
-        
-      <!-- tagフォーム -->
-      <div class='field'>
-        <%= f.label :tag_list, 'タグ', class: 'post-new-edit-label' %><br/>
-        <%= f.text_field :tag_list, class: 'form-control', placeholder: '半角スペース区切り。' %>
-      </div>
-        
-      <div class="form-group">
-        <%= f.label :title, 'タイトル', class: 'post-new-edit-label' %>
-        <%= f.text_field :title, class: 'form-control', placeholder: '50文字以内。', id: 'post-count' %>
-        <div id="post-counter" class="text-right count-default">0文字</div>
-      </div>
-      
-      <div class="form-group">
-        <%= f.label :content, '学習内容', class: 'post-new-edit-label' %>
-        <%= f.text_area :content, class: 'form-control', rows: "7", placeholder: '学んだことをご記入ください。' %>
-      </div>
-      
-      <div class="form-group" >
-        <%= f.label :book, '教材', class: 'post-new-edit-label' %>
-        <%= f.text_area :book, placeholder: '利用したサービスや参考書等をご記入ください。',rows: "7", class: "form-control" %>
-      </div>
-      
-      <div class="form-group" >
-        <%= f.label :direction, '学習方法', class: 'post-new-edit-label' %>
-        <%= f.text_area :direction, placeholder: '具体的な学習方法や学習時間等をご記入ください。',rows: "7", class: "form-control" %>
-      </div>
-
-      <div class="form-group" >
-        <%= f.label :summary, 'まとめ', class: 'post-new-edit-label' %>
-        <%= f.text_area :summary, placeholder: 'まとめや最後に伝えたいことをご記入ください。',rows: "7", class: "form-control" %>
-      </div>
-      
-      <%= f.submit '投稿', class: 'btn btn-outline-primary btn-block mt-4' %>
+      <%= render 'layouts/error_messages', model: f.object %>
+        <div class='field'>
+          <%= f.label :tag_list, 'タグ', class: 'post-new-edit-label' %><br/>
+          <%= f.text_field :tag_list, class: 'form-control', placeholder: '半角スペース区切り。' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :title, 'タイトル', class: 'post-new-edit-label' %>
+          <%= f.text_field :title, class: 'form-control', placeholder: '50文字以内。', id: 'post-count' %>
+          <div id="post-counter" class="text-right count-default">0文字</div>
+        </div>    
+        <div class="form-group">
+          <%= f.label :content, '学習内容', class: 'post-new-edit-label' %>
+          <%= f.text_area :content, class: 'form-control', rows: "7", placeholder: '学んだことをご記入ください。' %>
+        </div>     
+        <div class="form-group" >
+          <%= f.label :book, '教材', class: 'post-new-edit-label' %>
+          <%= f.text_area :book, placeholder: '利用したサービスや参考書等をご記入ください。',rows: "7", class: "form-control" %>
+        </div>  
+        <div class="form-group" >
+          <%= f.label :direction, '学習方法', class: 'post-new-edit-label' %>
+          <%= f.text_area :direction, placeholder: '具体的な学習方法や学習時間等をご記入ください。',rows: "7", class: "form-control" %>
+        </div>
+        <div class="form-group" >
+          <%= f.label :summary, 'まとめ', class: 'post-new-edit-label' %>
+          <%= f.text_area :summary, placeholder: 'まとめや最後に伝えたいことをご記入ください。',rows: "7", class: "form-control" %>
+        </div> 
+        <%= f.submit '投稿', class: 'btn btn-outline-primary btn-block mt-4' %>
       <% end %>
-      
     </div>
   </div>
 </div>
