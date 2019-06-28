@@ -334,11 +334,11 @@ footer {
 // _user
 
 .user-media {
-  padding: 0 20px;
   color: $default-color;
+  padding: 0 20px;
   hr {
-    margin-top: 0.5rem;
     margin-bottom: 1rem;
+    margin-top: 0.5rem;
   }
 }
 
@@ -356,9 +356,19 @@ footer {
   }
 }
 
-.user-media-follow-button {
-  margin: 0;
-  text-align: right;
+.user-media-header {
+  display: flex;
+  width: 100%;
+  a {
+    width: 60%;
+  }
+  form {
+    text-align: right;
+    width: 40%;
+    button {
+      min-width: 92px;
+    }
+  }
 }
 
 // _post
