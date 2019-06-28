@@ -17,7 +17,9 @@
 
 $default-color: #464646;
 $light: #818181;
+$soft: #555555;
 $link-color: #076fa7;
+$main: #1b9ef0;
 $visited-color: #6e6e6e;
 
 @mixin background($color: #fff, $border: 1px, $bColor: #e0e4e7, $bRadius: 2px) {
@@ -258,16 +260,18 @@ footer {
   color: $default-color;
 }
 
-.show-profile-image-circle {
-  @include circle;
-  margin-top: 1rem;
-  width: 100%;
+.user-show-image {
+  img {
+    @include circle;
+    margin-top: 1rem;
+    width: 100%;
+  }
 }
 
 .user-show-name {
   font-size: 1.2rem;
   font-weight: 700;
-  padding: 0.6rem 0;
+  padding-top: 10px;
 }
 
 .user-show-profile {
@@ -275,10 +279,10 @@ footer {
 }
 
 .user-show-to-edit {
-  color: #555555;
+  color: $soft;
   font-size: 0.8rem;
   &:hover {
-    color: #555555;
+    color: $soft;
   }
 }
 
@@ -312,19 +316,17 @@ footer {
   a {
     color: $light;
     &:hover {
-      color: #1b9ef0;
+      color: $main;
     }
   }
   .nav-link.active {
-    border-bottom: 3px solid #1b9ef0;
-    color: #1b9ef0;
+    border-bottom: 3px solid $main;
+    color: $main;
   }
 }
 
 .my-tab-content {
-  background-color: #fff;
-  border: solid hsl(206, 13%, 89%);
-  border-radius: 2px;
+  @include background($bColor: hsl(206, 13%, 89%));
   border-width: 0px 1px 1px 1px;
   padding: 0;
 }
