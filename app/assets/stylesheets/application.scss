@@ -80,19 +80,15 @@ footer {
   }
 }
 
-
 //検索フォーム
 .nav-form {
   @include background(none, 2px, #e0e4e7, 7px);
   padding: 5px;
 }
 
-
 .search-btn {
   background-color: #fff;
 }
-
-
 
 // home
 .jumbotron {
@@ -186,7 +182,7 @@ footer {
   padding: 30px;
 }
 
-// user&session new
+// user/registration/new & user/session/new
 
 .user-new-title {
   font-size: 2rem;
@@ -202,6 +198,7 @@ footer {
 .btn-twitter {
   color: #fff;
   background-color: #1ca1f3;
+  font-size: 1rem;
   &:hover {
     background-color: #288fd4;
     color: #fff;

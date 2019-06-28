@@ -1,28 +1,23 @@
 <div class="container">  
   <div class="col-xs-10 offset-xs-1 col-md-6 offset-md-3 col-lg-4 offset-lg-4 user-wrapper"> 
     <div class="text-center user-new-title">Studireにログイン</div>
-
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field form-group">
         <%= f.email_field :email, autofocus: true, autocomplete: "email", id: 'email', class: 'form-control', placeholder: 'メールアドレス' %>
       </div>
-
       <div class="field form-group">
         <%= f.password_field :password, autocomplete: "current-password", id: 'password', class: 'form-control', placeholder: 'パスワード' %>
       </div>
-        
       <div class="field">
         <% if devise_mapping.rememberable? %>
           <%= f.check_box :remember_me %>
           <%= f.label :remember_me, '次回から自動的にログイン' %>
         <% end %>
       </div>
-
       <div class="actions">
         <%= f.submit "ログイン", class: "btn btn-outline-primary w-100 mb-2" %>
       </div>
     <% end %>
-
     <div>
       <p>アカウントをお持ちでない方は
       <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
@@ -32,7 +27,6 @@
       </p>
     </div>
     <hr>
-    
     <div class="sns-login">
       <%= link_to user_twitter_omniauth_authorize_path, class: 'btn btn-lg btn-twitter w-100' do %>
         <i class="fab fa-twitter fa-1x"></i> Twitterアカウントでログイン
