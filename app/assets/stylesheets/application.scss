@@ -80,7 +80,24 @@ footer {
   }
 }
 
+// sns button
+
+.sns-login {
+  padding-top: 10px;
+}
+
+.btn-twitter {
+  color: #fff;
+  background-color: #1ca1f3;
+  font-size: 1rem;
+  &:hover {
+    background-color: #288fd4;
+    color: #fff;
+  }
+}
+
 //検索フォーム
+
 .nav-form {
   @include background(none, 2px, #e0e4e7, 7px);
   padding: 5px;
@@ -91,6 +108,7 @@ footer {
 }
 
 // home
+
 .jumbotron {
   background-image: url("header.jpg");
   background-size: cover;
@@ -182,7 +200,7 @@ footer {
   padding: 30px;
 }
 
-// user/registration/new & user/session/new
+// user registration new & user session new
 
 .user-new-title {
   font-size: 2rem;
@@ -191,31 +209,33 @@ footer {
   margin: 20px 0px;
 }
 
-.sns-login {
-  padding-top: 10px;
-}
-
-.btn-twitter {
-  color: #fff;
-  background-color: #1ca1f3;
-  font-size: 1rem;
-  &:hover {
-    background-color: #288fd4;
-    color: #fff;
-  }
-}
-
 // user edit
+
 .user-edit-wrapper {
   @include background;
   color: $default-color;
-  margin-top: 45px;
   margin-bottom: 45px;
+  margin-top: 45px;
   padding: 30px;
+  .user-edit-title {
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    a {
+      color: #555555;
+      font-size: 1.6rem;
+      font-weight: 500;
+    }
+  }
 }
 
 .user-edit-image-circle {
   @include circle;
+}
+
+.user-edit-label {
+  color: $default-color;
+  font-size: 0.95rem;
+  font-weight: 600;
 }
 
 .count-default {
@@ -226,22 +246,6 @@ footer {
 .count-danger {
   color: #df235e;
   font-size: 0.8rem;
-}
-
-.user-edit-title {
-  margin-bottom: 20px;
-  font-size: 1.4rem;
-  a {
-    color: #555555;
-    font-size: 1.6rem;
-    font-weight: 500;
-  }
-}
-
-.user-edit-label {
-  color: $default-color;
-  font-size: 0.95rem;
-  font-weight: 600;
 }
 
 .user-destroy-button {
