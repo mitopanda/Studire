@@ -458,12 +458,10 @@ footer {
 }
 
 .post-show-title {
-  margin-top: 10px;
-  h1 {
+    margin-top: 10px;
     font-size: 3.5rem;
     font-weight: 700;
     font-feature-settings: "palt";
-  }
 }
 
 .post-show-tag {
@@ -486,7 +484,7 @@ footer {
 
 .post-show-content {
   margin-bottom: 70px;
-  h1 {
+  h2 {
     border-bottom: 5px solid #cecfcf94;
     font-size: 2rem;
     font-feature-settings: "palt";
@@ -496,25 +494,6 @@ footer {
   }
 }
 
-.good-button {
-  border: 2px solid #2294f1;
-  color: #2294f1;
-  &:hover {
-    background-color: rgb(238, 238, 238);
-    color: #2294f1;
-  }
-}
-
-.good-button-now {
-  background-color: #2294f1;
-  border: 2px solid #2294f1;
-  color: #fff;
-  &:hover {
-    background-color: #66ade7;
-    border-color: #66ade7;
-    color: #fff;
-  }
-}
 
 .post-show-user-profile {
   @include background;
@@ -552,7 +531,9 @@ footer {
   hr {
     margin: 20px 0;
   }
-
+  img {
+    @include circle;
+  }
   .comment-destroy {
     color: $light;
     margin-right: 4px;
@@ -605,14 +586,43 @@ footer {
 
 .post-show-comment-form-header {
   background-color: #1b9ef0;
-  color: #fff;
+  
   padding: 10px;
+  p {
+    color: #fff;
+    display: inline-block;
+    font-weight: 600;
+    margin: 0;
+  }
 }
 
-.post-show-comment-label {
-  display: inline-block;
-  font-weight: 600;
+// .post-show-comment-label {
+//   display: inline-block;
+//   font-weight: 600;
+// }
+
+// _favorite_button
+
+.good-button {
+  border: 2px solid #2294f1;
+  color: #2294f1;
+  &:hover {
+    background-color: rgb(238, 238, 238);
+    color: #2294f1;
+  }
 }
+
+.good-button-now {
+  background-color: #2294f1;
+  border: 2px solid #2294f1;
+  color: #fff;
+  &:hover {
+    background-color: #66ade7;
+    border-color: #66ade7;
+    color: #fff;
+  }
+}
+
 
 // liking
 .likes-wrapper {

@@ -12,19 +12,17 @@
             class="fas fa-trash-alt"></i> 削除<% end %>
           <% end %>
         </div>
-        <div class="post-show-title">
-          <h1><%= @post.title %></h1>
-        </div>
+        <h1 class="post-show-title"><%= @post.title %></h1>
         <div class="post-show-tag"><i
             class="fas fa-tags"></i>&ensp;<%= raw(@post.tag_list.map { |t| link_to t, tag_path(t) }.join(' ')) %></div>
         <div class="post-show-content">
-          <h1>学習内容</h1>
+          <h2>学習内容</h2>
           <%= auto_link(simple_format(@post.content), html: {target: '_blank'}) %>
-          <h1>使用した参考書・サービス</h1>
+          <h2>使用した参考書・サービス</h2>
           <%= auto_link(simple_format(@post.book), html: {target: '_blank'}) %>
-          <h1>学習方法・学習時間</h1>
+          <h2>学習方法・学習時間</h2>
           <%= auto_link(simple_format(@post.direction), html: {target: '_blank'}) %>
-          <h1>まとめ</h1>
+          <h2>まとめ</h2>
           <%= auto_link(simple_format(@post.summary), html: {target: '_blank'}) %>
         </div>
         <div class="mb-2">
@@ -52,27 +50,25 @@
         </div>
       </div>
       <% if @comments.length > 0 %>
-      <div>
-        <div class="post-comment-media-header mt-4">
-          <h4><i class="far fa-comment"></i><%= @comments.count %>件のコメント</h4>
-        </div>
-        <% @comments.each do |comment| %>
-        <div class="post-comment-media">
-          <hr>
-          <%= image_tag comment.user.image.url, class: 'mr-3 post-user-image', :size => '40x40' %>
-          <%= link_to comment.user.name, user_path(comment.user) %>
-          <span class="text-muted">投稿日<%= comment.created_at.strftime("%Y-%m-%d %H:%M") %></span>
-          <% if comment.user_id == current_user.id %>
-          <%= link_to post_comment_path(@post, comment), method: :delete, data: { confirm: "You sure?" }, class: 'comment-destroy' do %><i
-            class="fas fa-trash-alt"></i> 削除<% end %>
-          <% end %>
-          <div class="post-comment-content">
-            <%= simple_format(comment.content) %>
-          </div>
-        </div>
-        <% end %>
-        <!-- comments.each do ここまで -->
+      <div class="post-comment-media-header mt-4">
+        <h4><i class="far fa-comment"></i><%= @comments.count %>件のコメント</h4>
       </div>
+      <% @comments.each do |comment| %>
+      <div class="post-comment-media">
+        <hr>
+        <%= image_tag comment.user.image.url, class: 'mr-3', :size => '40x40' %>
+        <%= link_to comment.user.name, user_path(comment.user) %>
+        <span class="text-muted">投稿日<%= comment.created_at.strftime("%Y-%m-%d %H:%M") %></span>
+        <% if comment.user_id == current_user.id %>
+        <%= link_to post_comment_path(@post, comment), method: :delete, data: { confirm: "You sure?" }, class: 'comment-destroy' do %><i
+          class="fas fa-trash-alt"></i> 削除<% end %>
+        <% end %>
+        <div class="post-comment-content">
+          <%= simple_format(comment.content) %>
+        </div>
+      </div>
+      <% end %>
+      <!-- comments.each do ここまで -->
       <% else %>
       <div class="post-comment-media-header mt-4">
         <h4><%= @comments.count %>件のコメント</h4>
@@ -82,11 +78,11 @@
       <div class="form-group post-show-comment-area">
         <div class="post-show-comment-form-header">
           <%= image_tag current_user.image.to_s, class: 'mr-1 post-user-image', :size => '40x40' %>
-          <div class="post-show-comment-label"><i class="far fa-comment"></i>コメントする</div>
+          <p><i class="far fa-comment"></i>コメントする</p>
         </div>
         <%= form_for [@post, @comment] do |f| %>
-        <%= f.text_area :content, class: 'form-control', rows: '5', id: 'comment', placeholder: 'コメントを入力してください。' %>
-        <%= f.submit '投稿', class: 'btn btn-outline-primary btn-block' %>
+          <%= f.text_area :content, class: 'form-control', rows: '5', id: 'comment', placeholder: 'コメントを入力してください。' %>
+          <%= f.submit '投稿', class: 'btn btn-outline-primary btn-block' %>
         <% end %>
       </div>
     </div>
