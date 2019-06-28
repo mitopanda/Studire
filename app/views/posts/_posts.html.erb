@@ -4,17 +4,15 @@
   <li class="media">
     <%= image_tag post.user.image.url, class: 'mr-3 post-user-image', :size => '50x50' %>
     <div class="media-body post-media-content">
-      <div class="mt-0">
-        <%= link_to post.user.name, user_path(post.user), class: 'post-media-name' %>
-        <span class="text-muted post-index-date">投稿日<%= post.created_at.strftime("%Y/%m/%d") %></span>
-        <br>
-        <%= link_to post.title, post_path(post), class: 'post-media-title' %>
-        <div class="post-index-tag">
-          <span><i class="fas fa-thumbs-up"></i>&nbsp;<%= post.liked_users.count %></span>
-          <span><i class="far fa-comment"></i>&nbsp;<%= post.comments.count %></span>
-          <span>&nbsp;<i
-              class="fas fa-tags"></i>&nbsp;<%= raw(post.tag_list.map { |t| link_to t, tag_path(t) }.join(' ')) %></span>
-        </div>
+      <%= link_to post.user.name, user_path(post.user), class: 'post-media-name' %>
+      <span class="text-muted post-index-date">投稿日<%= post.created_at.strftime("%Y/%m/%d") %></span>
+      <br>
+      <%= link_to post.title, post_path(post), class: 'post-media-title' %>
+      <div class="post-index-tag">
+        <span><i class="fas fa-thumbs-up"></i>&nbsp;<%= post.liked_users.count %></span>
+        <span><i class="far fa-comment"></i>&nbsp;<%= post.comments.count %></span>
+        <span>&nbsp;<i
+            class="fas fa-tags"></i>&nbsp;<%= raw(post.tag_list.map { |t| link_to t, tag_path(t) }.join(' ')) %></span>
       </div>
     </div>
   </li>

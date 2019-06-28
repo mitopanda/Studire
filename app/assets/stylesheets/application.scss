@@ -374,8 +374,8 @@ footer {
 // _post
 
 .post-media {
-  padding: 0 20px;
   color: $default-color;
+  padding: 0 20px;
   img {
     margin-top: 0.5rem;
   }
@@ -395,25 +395,24 @@ footer {
     color: $light;
     font-size: 0.8rem;
   }
-}
-
-.post-media-title {
-  color: $default-color;
-  font-size: 1.05rem;
-  font-weight: 700;
-  &:visited {
-    color: $visited-color;
-  }
-  &:hover {
+  .post-media-title {
     color: $default-color;
+    font-size: 1.05rem;
     font-weight: 700;
+    &:visited {
+      color: $visited-color;
+    }
+    &:hover {
+      color: $default-color;
+      font-weight: 700;
+    }
   }
 }
 
 .post-index-tag {
-  margin: 0;
   color: $light;
   font-size: 0.8rem;
+  margin: 0;
   a {
     background-color: #eeeeee;
     border: 1px;
