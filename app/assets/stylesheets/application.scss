@@ -69,7 +69,8 @@ footer {
   }
 }
 
-// pagination
+// ページネーション
+
 .pagination {
   .page-link {
     color: #1b9ef0;
@@ -82,7 +83,7 @@ footer {
   }
 }
 
-// sns button
+// ツイッターログインボタン
 
 .sns-login {
   padding-top: 10px;
@@ -109,7 +110,7 @@ footer {
   background-color: #fff;
 }
 
-// home
+// home/index
 
 .jumbotron {
   background-image: url("header.jpg");
@@ -192,7 +193,7 @@ footer {
   }
 }
 
-// user
+// user全般
 
 .user-wrapper {
   @include background;
@@ -202,7 +203,7 @@ footer {
   padding: 30px;
 }
 
-// user registration new & user session new
+// user/registration/new & user/session/new
 
 .user-new-title {
   font-size: 2rem;
@@ -211,7 +212,7 @@ footer {
   margin: 20px 0px;
 }
 
-// user edit
+// user/edit
 
 .user-edit-wrapper {
   @include background;
@@ -255,6 +256,7 @@ footer {
 }
 
 //user show
+
 .user-show-aside {
   @include background;
   color: $default-color;
@@ -458,10 +460,10 @@ footer {
 }
 
 .post-show-title {
-    margin-top: 10px;
-    font-size: 3.5rem;
-    font-weight: 700;
-    font-feature-settings: "palt";
+  margin-top: 10px;
+  font-size: 3.5rem;
+  font-weight: 700;
+  font-feature-settings: "palt";
 }
 
 .post-show-tag {
@@ -493,7 +495,6 @@ footer {
     margin: 80px 0 20px 0;
   }
 }
-
 
 .post-show-user-profile {
   @include background;
@@ -586,7 +587,6 @@ footer {
 
 .post-show-comment-form-header {
   background-color: #1b9ef0;
-  
   padding: 10px;
   p {
     color: #fff;
@@ -595,11 +595,6 @@ footer {
     margin: 0;
   }
 }
-
-// .post-show-comment-label {
-//   display: inline-block;
-//   font-weight: 600;
-// }
 
 // _favorite_button
 
@@ -623,8 +618,7 @@ footer {
   }
 }
 
-
-// liking
+// お気に入り投稿 user/likes
 .likes-wrapper {
   @include background;
   padding: 20px 10px;
@@ -664,9 +658,9 @@ footer {
 
 // sharelink
 .twitter {
-  color: #fff;
   background-color: #1ca1f3;
   border-radius: 2px;
+  color: #fff;
   padding: 3px 5px;
   &:hover {
     background-color: #288fd4;
@@ -676,9 +670,9 @@ footer {
 }
 
 .facebook {
-  color: #fff;
   background-color: #3b5999;
   border-radius: 2px;
+  color: #fff;
   padding: 3px 5px;
   &:hover {
     background-color: #263f74;
@@ -688,9 +682,9 @@ footer {
 }
 
 .line {
-  color: #fff;
   background-color: #1dcd00;
   border-radius: 2px;
+  color: #fff;
   padding: 3px 5px;
   &:hover {
     background-color: #17af00;
