@@ -11,7 +11,7 @@ class User < ApplicationRecord
 
   # carrierwave
   mount_uploader :image, ImagesUploader
-  
+
   # relationships
   has_many :relationships, dependent: :destroy
   has_many :followings, through: :relationships, source: :follow
@@ -19,18 +19,16 @@ class User < ApplicationRecord
   has_many :followers, through: :reverses_of_relationship, source: :user
 
   def follow(other_user)
-    unless self == other_user
-      self.relationships.find_or_create_by(follow_id: other_user.id)
-    end
+    relationships.find_or_create_by(follow_id: other_user.id) unless self == other_user
   end
 
   def unfollow(other_user)
-    relationship = self.relationships.find_by(follow_id: other_user.id)
-    relationship.destroy if relationship
+    relationship = relationships.find_by(follow_id: other_user.id)
+    relationship&.destroy
   end
 
   def following?(other_user)
-    self.followings.include?(other_user)
+    followings.include?(other_user)
   end
 
   # favorites
@@ -38,37 +36,35 @@ class User < ApplicationRecord
   has_many :liked_posts, through: :favorites, source: :post
 
   def like(post)
-    self.favorites.find_or_create_by(post_id: post.id)
-  end
-  
-  def unlike(post)
-    favorites = self.favorites.find_by(post_id: post.id)
-    favorites.destroy if favorites
-  end
-  
-  def liking?(post)
-    self.liked_posts.include?(post)
+    favorites.find_or_create_by(post_id: post.id)
   end
 
-protected
+  def unlike(post)
+    favorites = self.favorites.find_by(post_id: post.id)
+    favorites&.destroy
+  end
+
+  def liking?(post)
+    liked_posts.include?(post)
+  end
+
+  protected
+
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
 
-    unless user
-      user = User.create(name: auth.info.name,
+    user ||= User.create(name: auth.info.name,
                          email: User.dumy_email(auth),
                          provider: auth.provider,
                          uid: auth.uid,
                          password: Devise.friendly_token[0, 20],
-                         remote_image_url: auth.info.image.gsub('http', 'https') #carrerwave用の変更
-                         )
-    end
+                         remote_image_url: auth.info.image.gsub('http', 'https'))
     user
   end
 
   private
 
   def self.dumy_email(auth)
-    "#{auth.uid}-#{auth.provider}@example.com" #POINT
+    "#{auth.uid}-#{auth.provider}@example.com"
   end
 end
