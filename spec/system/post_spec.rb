@@ -14,7 +14,7 @@ describe 'ポスト機能', type: :system, js: true do
     end
     context '有効な情報を送信したとき' do
       it '正常に登録される' do
-        expect {
+        expect do
           fill_in 'post-count', with: 'タイトルです。'
           fill_in '学習内容', with: '学習内容です。'
           fill_in '教材', with: '教材です。'
@@ -24,13 +24,13 @@ describe 'ポスト機能', type: :system, js: true do
 
           expect(page).to have_content '学習内容です。'
           expect(page).to have_content '投稿に成功しました'
-      }.to change(@user.posts, :count).by(1)
+        end.to change(@user.posts, :count).by(1)
       end
     end
-    
+
     context '無効な情報を送信したとき' do
       it 'エラーとなる' do
-        expect {
+        expect do
           fill_in 'post-count', with: ''
           fill_in '学習内容', with: ''
           fill_in '教材', with: ''
@@ -39,7 +39,7 @@ describe 'ポスト機能', type: :system, js: true do
           click_button '投稿'
 
           expect(page).to have_content '投稿に失敗しました'
-      }.to change(@user.posts, :count).by(0)
+        end.to change(@user.posts, :count).by(0)
       end
     end
   end
@@ -51,7 +51,7 @@ describe 'ポスト機能', type: :system, js: true do
     end
     context '有効な情報を送信したとき' do
       it '正常に更新される' do
-        expect {
+        expect do
           fill_in 'タイトル', with: 'タイトルです。'
           fill_in '学習内容', with: '学習内容です。'
           fill_in '教材', with: '教材です。'
@@ -60,13 +60,13 @@ describe 'ポスト機能', type: :system, js: true do
           click_button '投稿'
 
           expect(page).to have_content '投稿の編集に成功しました'
-      }
+        end
       end
     end
-    
+
     context '無効な情報を送信したとき' do
       it '編集に失敗する' do
-        expect {
+        expect do
           fill_in 'タイトル', with: ''
           fill_in '学習内容', with: ''
           fill_in '教材', with: ''
@@ -75,7 +75,7 @@ describe 'ポスト機能', type: :system, js: true do
           click_button '投稿'
 
           expect(page).to have_content '投稿の編集に失敗しました'
-      }
+        end
       end
     end
   end
@@ -87,11 +87,11 @@ describe 'ポスト機能', type: :system, js: true do
     end
 
     it '正常に削除される' do
-      expect {
+      expect do
         click_link '削除'
         page.accept_confirm 'You sure?'
         expect(page).to have_content '投稿を削除しました'
-    }.to change(@user.posts, :count).by(-1)
+      end.to change(@user.posts, :count).by(-1)
     end
   end
 
@@ -101,7 +101,7 @@ describe 'ポスト機能', type: :system, js: true do
       @post = FactoryBot.create(:post, user: @user)
       @other_post = FactoryBot.create(:post, user: @other_user)
     end
-    
+
     context '現在のユーザーの投稿の場合' do
       it '編集&削除リンクが表示' do
         visit post_path(id: @post.id)
