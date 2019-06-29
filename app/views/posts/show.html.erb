@@ -1,37 +1,40 @@
-<div class="container">  
+<div class="container">
   <div class="row">
-    <div class="col-md-10 offset-md-1">
+    <div class="col-xs-12 col-md-10 offset-md-1">
       <div class="user-wrapper">
         <div class="mb-4">
           <%= image_tag @post.user.image.url, class: 'mr-3 post-user-image', :size => '40x40' %>
           <%= link_to @post.user.name, user_path(@post.user), class: "mr-1 post-show-user-name" %>
           <span class="text-muted post-index-date mr-4">投稿日<%= @post.created_at.strftime("%Y/%m/%d") %></span>
           <% if current_user == @post.user %>
-            <%= link_to edit_post_path(@post), class: 'post-edit-destroy' do %><i class="fas fa-edit"></i> 編集<% end %>
-            <%= link_to @post, method: :delete, data: { confirm: "You sure?" }, class: 'post-edit-destroy' do %><i class="fas fa-trash-alt"></i> 削除<% end %>
+          <%= link_to edit_post_path(@post), class: 'post-edit-destroy' do %><i class="fas fa-edit"></i> 編集<% end %>
+          <%= link_to @post, method: :delete, data: { confirm: "You sure?" }, class: 'post-edit-destroy' do %><i
+            class="fas fa-trash-alt"></i> 削除<% end %>
           <% end %>
         </div>
-        <div class="post-show-title">
-          <h1><%= @post.title %></h1>
-        </div>
-        <div class="post-show-tag"><i class="fas fa-tags"></i>&ensp;<%= raw(@post.tag_list.map { |t| link_to t, tag_path(t) }.join(' ')) %></div>
+        <h1 class="post-show-title"><%= @post.title %></h1>
+        <div class="post-show-tag"><i
+            class="fas fa-tags"></i>&ensp;<%= raw(@post.tag_list.map { |t| link_to t, tag_path(t) }.join(' ')) %></div>
         <div class="post-show-content">
-          <h1>学習内容</h1>
+          <h2>学習内容</h2>
           <%= auto_link(simple_format(@post.content), html: {target: '_blank'}) %>
-          <h1>使用した参考書・サービス</h1>
+          <h2>使用した参考書・サービス</h2>
           <%= auto_link(simple_format(@post.book), html: {target: '_blank'}) %>
-          <h1>学習方法・学習時間</h1>
+          <h2>学習方法・学習時間</h2>
           <%= auto_link(simple_format(@post.direction), html: {target: '_blank'}) %>
-          <h1>まとめ</h1>
+          <h2>まとめ</h2>
           <%= auto_link(simple_format(@post.summary), html: {target: '_blank'}) %>
         </div>
         <div class="mb-2">
           <%= render 'favorites/like_button', post: @post %>
         </div>
         <div class="sharelink">
-          <%= link_to "https://twitter.com/share?url=#{request.url}&text=#{@post.title}", class: 'twitter', title: 'Twitter', target: '_blank' do %><i class="fab fa-twitter"></i>Twitter<% end %>
-          <%= link_to "https://www.facebook.com/sharer/sharer.php?u=#{request.url}&text=#{@post.title}", class: 'facebook', title: 'Facebook', target: '_blank' do %><i class="fab fa-facebook-square"></i>Facebook<% end %>
-          <%= link_to "http://line.me/R/msg/text/?#{request.url}&text=#{@post.title}", class: 'line', title: 'LINE', target: '_blank' do %><i class="fab fa-line"></i>LINE<% end %>
+          <%= link_to "https://twitter.com/share?url=#{request.url}&text=#{@post.title}", class: 'twitter', title: 'Twitter', target: '_blank' do %><i
+            class="fab fa-twitter"></i>Twitter<% end %>
+          <%= link_to "https://www.facebook.com/sharer/sharer.php?u=#{request.url}&text=#{@post.title}", class: 'facebook', title: 'Facebook', target: '_blank' do %><i
+            class="fab fa-facebook-square"></i>Facebook<% end %>
+          <%= link_to "http://line.me/R/msg/text/?#{request.url}&text=#{@post.title}", class: 'line', title: 'LINE', target: '_blank' do %><i
+            class="fab fa-line"></i>LINE<% end %>
         </div>
       </div>
       <div class="post-show-user-profile">
@@ -40,33 +43,32 @@
           <div class="media-body">
             by <%= link_to "#{@post.user.name}", user_path(@post.user) %>
             <p><%= @post.user.profile %></p>
-          </div><!-- /.media-body -->
+          </div>
           <div class="post-show-follow-button mr-2 mt-2">
             <%= render 'relationships/follow_button', user: @post.user %>
           </div>
-        </div><!-- /.media -->
+        </div>
       </div>
       <% if @comments.length > 0 %>
-      <div>
-        <div class="post-comment-media-header mt-4">
-          <h4><i class="far fa-comment"></i><%= @comments.count %>件のコメント</h4>
-        </div>
-        <% @comments.each do |comment| %>
-        <div class="post-comment-media">
-          <hr>
-          <div>
-            <%= image_tag comment.user.image.url, class: 'mr-3 post-user-image', :size => '40x40' %>
-            <%= link_to comment.user.name, user_path(comment.user) %> <span class="text-muted">投稿日<%= comment.created_at.strftime("%Y-%m-%d %H:%M") %></span>
-            <% if comment.user_id == current_user.id %>
-              <%= link_to post_comment_path(@post, comment), method: :delete, data: { confirm: "You sure?" }, class: 'comment-destroy' do %><i class="fas fa-trash-alt"></i> 削除<% end %>
-            <% end %>
-          </div>
-          <div class="post-comment-content">
-            <%= simple_format(comment.content) %>
-          </div>
-        </div>
-      <% end %>
+      <div class="post-comment-media-header mt-4">
+        <h4><i class="far fa-comment"></i><%= @comments.count %>件のコメント</h4>
       </div>
+      <% @comments.each do |comment| %>
+      <div class="post-comment-media">
+        <hr>
+        <%= image_tag comment.user.image.url, class: 'mr-3', :size => '40x40' %>
+        <%= link_to comment.user.name, user_path(comment.user) %>
+        <span class="text-muted">投稿日<%= comment.created_at.strftime("%Y-%m-%d %H:%M") %></span>
+        <% if comment.user_id == current_user.id %>
+        <%= link_to post_comment_path(@post, comment), method: :delete, data: { confirm: "You sure?" }, class: 'comment-destroy' do %><i
+          class="fas fa-trash-alt"></i> 削除<% end %>
+        <% end %>
+        <div class="post-comment-content">
+          <%= simple_format(comment.content) %>
+        </div>
+      </div>
+      <% end %>
+      <!-- comments.each do ここまで -->
       <% else %>
       <div class="post-comment-media-header mt-4">
         <h4><%= @comments.count %>件のコメント</h4>
@@ -76,14 +78,12 @@
       <div class="form-group post-show-comment-area">
         <div class="post-show-comment-form-header">
           <%= image_tag current_user.image.to_s, class: 'mr-1 post-user-image', :size => '40x40' %>
-          <div class="post-show-comment-label"><i class="far fa-comment"></i>コメントする</div>
+          <p><i class="far fa-comment"></i>コメントする</p>
         </div>
-        <div></div>
-          <%= form_for [@post, @comment] do |f| %>
-            <%= f.text_area :content, class: 'form-control', rows: '5', id: 'comment', placeholder: 'コメントを入力してください。' %>
-            <%= f.submit '投稿', class: 'btn btn-outline-primary btn-block' %>
-          <% end %>
-        </div>
+        <%= form_for [@post, @comment] do |f| %>
+          <%= f.text_area :content, class: 'form-control', rows: '5', id: 'comment', placeholder: 'コメントを入力してください。' %>
+          <%= f.submit '投稿', class: 'btn btn-outline-primary btn-block' %>
+        <% end %>
       </div>
     </div>
   </div>

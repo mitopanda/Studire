@@ -7,15 +7,16 @@
         <p>Studireは学習内容と学習方法のシェアサービスです。</p>
         <p>分野は問わず学んだこと、それを学んだ方法を共有して学びのテンプレートを作り上げましょう。</p>
         <div class="home-button-wrapper">
-          <%= link_to '会員登録', new_user_registration_path, class: 'btn home-button' %>
-          <%= link_to 'ログイン', new_user_session_path, class: 'btn home-button' %>
+          <%= link_to '会員登録', new_user_registration_path, class: 'btn' %>
+          <%= link_to 'ログイン', new_user_session_path, class: 'btn' %>
         </div>
         <div class="home-separator">または</div>
         <div class="sns-login">
           <%= link_to user_twitter_omniauth_authorize_path, class: 'btn btn-lg btn-twitter' do %>
-            <i class="fab fa-twitter fa-1x"></i> Twitterアカウントで登録
+          <i class="fab fa-twitter fa-1x"></i> Twitterアカウントで登録
           <% end %>
         </div>
+        <p>※テストユーザの方はログイン画面から</p>
       </div>
     </div>
   </div>
@@ -25,22 +26,26 @@
   <div class="row">
     <div class="col-xs-12 col-md-9 mt-4 mb-4 order-md-2">
       <% if params[:q] %>
-        <div class="ransack-tag-title"><%= "#{params[:q]}の検索結果" %></div>
+      <div class="ransack-tag-title"><%= "#{params[:q]}の検索結果" %></div>
       <% elsif params[:tag] %>
-        <div class="ransack-tag-title"><%= "絞り込み：#{params[:tag]}" %></div>
+      <div class="ransack-tag-title"><%= "絞り込み：#{params[:tag]}" %></div>
       <% end %>
       <div>
         <ul id="myTab" class="nav nav-tabs tab-header" role="tablist">
-          <li class="nav-item"><%= link_to "#newpost", id: 'newpost-tab', class: 'nav-link active', role: 'tab', data: { toggle: 'tab' }, aria: { controls: "newpost" }, aria: { selected: "true" } do %>新着順<% end %></li>
-          <li class="nav-item"><%= link_to "#likingpost", id: 'likingpost-tab', class: 'nav-link', role: 'tab', data: { toggle: 'tab' }, aria: { controls: "likingpost" }, aria: { selected: "false" } do %>人気順<% end %></li>
+          <li class="nav-item">
+            <%= link_to "#newpost", id: 'newpost-tab', class: 'nav-link active', role: 'tab', data: { toggle: 'tab' }, aria: { controls: "newpost" }, aria: { selected: "true" } do %>新着順<% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "#likingpost", id: 'likingpost-tab', class: 'nav-link', role: 'tab', data: { toggle: 'tab' }, aria: { controls: "likingpost" }, aria: { selected: "false" } do %>人気順<% end %>
+          </li>
         </ul>
         <div id="myTabContent" class="tab-content pt-3 my-tab-content">
           <div id="newpost" class="tab-pane active" role="tabpanel" aria-labelledby="newpost-tab">
             <%= render 'posts/posts', posts: @posts %>
-          </div> 
+          </div>
           <div id="likingpost" class="tab-pane" role="tabpanel" aria-labelledby="likingpost-tab">
             <%= render 'posts/posts', posts: @liking %>
-          </div> 
+          </div>
         </div>
       </div>
     </div>
@@ -48,7 +53,7 @@
       <p class="tag-title">タグ一覧</p>
       <div class="tag-cloud">
         <% tag_cloud(@tags_counts, %w(css1)) do |tag, css_class| %>
-          <%= link_to "#{tag.name}(#{tag.count})", tag_path(tag.name), :class => css_class %>
+        <%= link_to "#{tag.name}(#{tag.count})", tag_path(tag.name), :class => css_class %>
         <% end %>
       </div>
     </div>

@@ -1,19 +1,19 @@
 <% if users.any? %>
   <ul class="list-unstyled user-media">
     <% users.each do |user| %>
-    <li class="media">
-      <%= image_tag user.image.url, class: 'mr-3 post-user-image', :size => '50x50' %>
-      <div class="media-body user-media-content">
-        <div class="mt-0">
-          <%= link_to "#{user.name}", user_path(user) %>
-          <p><%= user.profile %></p> 
+      <li class="media">
+        <%= image_tag user.image.url, class: 'mr-3 post-user-image', :size => '50x50' %>
+        <div class="media-body user-media-content">
+          <div class="mt-0">
+            <div class="user-media-header">
+              <%= link_to "#{user.name}", user_path(user) %>
+              <%= render 'relationships/follow_button', user: user %>
+            </div>
+            <p><%= user.profile %></p>
+          </div>
         </div>
-      </div><!-- /.media-body -->
-      <div class="user-media-follow-button mr-2 mt-2">
-        <%= render 'relationships/follow_button', user: user %>
-      <div>
-    </li><!-- /.media -->
-    <hr>
+      </li>
+      <hr>
     <% end %>
     <%= paginate users %>
   </ul>

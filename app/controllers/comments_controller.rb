@@ -16,15 +16,14 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find_by(id: params[:id])
-    unless @comment.user_id == current_user.id
-      redirect_back(fallback_location: root_path)
-    end
+    redirect_back(fallback_location: root_path) unless @comment.user_id == current_user.id
     @comment.destroy
     flash[:notice] = 'コメントを削除しました。'
     redirect_back(fallback_location: root_path)
   end
 
   private
+
   def comment_params
     params.require(:comment).permit(:content, :post_id)
   end

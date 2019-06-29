@@ -9,7 +9,7 @@ describe 'サインアップ機能', type: :system, js: true do
       fill_in 'name', with: 'Test'
       fill_in 'email', with: 'test@user.com'
       fill_in 'password', with: 'password'
-      fill_in ('password_confirmation'), with: 'password'
+      fill_in 'password_confirmation', with: 'password'
       click_button '会員登録'
       expect(page).to have_css('div.alert.alert-info')
     end
@@ -21,7 +21,7 @@ describe 'サインアップ機能', type: :system, js: true do
       fill_in 'name', with: ''
       fill_in 'email', with: ''
       fill_in 'password', with: ''
-      fill_in ('password_confirmation'), with: ''
+      fill_in 'password_confirmation', with: ''
       click_button '会員登録'
       expect(page).to have_css('div#error_explanation')
       expect(page).to have_content 'メールアドレスを入力してください'

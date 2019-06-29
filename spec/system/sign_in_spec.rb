@@ -19,11 +19,11 @@ describe 'ログイン機能', type: :system, js: true do
   end
 
   context '無効な情報が送信されたとき' do
-    it 'ログインページにリダイレクトされる'do
-      fill_in 'email', with: ""
-      fill_in 'password', with: ""
+    it 'ログインページにリダイレクトされる' do
+      fill_in 'email', with: ''
+      fill_in 'password', with: ''
       click_button 'ログイン'
-      
+
       expect(page).to have_css('div.alert.alert-danger')
     end
   end

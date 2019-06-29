@@ -7,25 +7,24 @@ RSpec.describe Relationship, type: :model do
     @relationship = FactoryBot.create(:relationship, user_id: @user.id, follow_id: @follow.id)
   end
 
-  context "relationshipが有効であるとき" do
-    it "有効なフォローの検証" do
-     expect(@relationship).to be_valid
+  context 'relationshipが有効であるとき' do
+    it '有効なフォローの検証' do
+      expect(@relationship).to be_valid
     end
   end
 
-  context "relationshipが無効であるとき" do
-
-    it "ユーザーidが存在しない" do
-      @relationship.user_id = ""
+  context 'relationshipが無効であるとき' do
+    it 'ユーザーidが存在しない' do
+      @relationship.user_id = ''
       expect(@relationship).to_not be_valid
     end
 
-    it "フォローidが存在しない" do
-      @relationship.follow_id = ""
+    it 'フォローidが存在しない' do
+      @relationship.follow_id = ''
       expect(@relationship).to_not be_valid
     end
 
-    it "relationshipの重複" do
+    it 'relationshipの重複' do
       relationship = FactoryBot.build(:relationship, user_id: @user_id, follow_id: @follow_id)
       expect(relationship).to_not be_valid
     end

@@ -17,13 +17,15 @@
 
 $default-color: #464646;
 $light: #818181;
+$soft: #555555;
 $link-color: #076fa7;
+$main: #1b9ef0;
 $visited-color: #6e6e6e;
 
-@mixin background {
-  background-color: #fff;
-  border: 1px solid #e0e4e7;
-  border-radius: 2px;
+@mixin background($color: #fff, $border: 1px, $bColor: #e0e4e7, $bRadius: 2px) {
+  background-color: $color;
+  border: $border solid $bColor;
+  border-radius: $bRadius;
 }
 
 @mixin circle {
@@ -43,13 +45,11 @@ body {
 
 p {
   color: $default-color;
-  line-height: 2;
+  line-height: 1.8;
 }
 
 footer {
-  background-color: #fff;
-  border-top: 1px solid #e0e4e7;
-  border-radius: 2px;
+  @include background();
   margin-top: 20px;
   text-align: center;
   p {
@@ -61,9 +61,7 @@ footer {
 }
 
 #error_explanation {
-  background-color: #f8d7da;
-  border: 1px solid #f5c6cb;
-  border-radius: 10px;
+  @include background(#f8d7da, 1px, #f5c6cb, 10px);
   margin-bottom: 10px;
   padding: 10px;
   h2 {
@@ -71,47 +69,103 @@ footer {
   }
 }
 
-// home
+// ページネーション
+
+.pagination {
+  .page-link {
+    color: #1b9ef0;
+  }
+  .page-item.active {
+    .page-link {
+      background-color: #1b9ef0;
+      border-color: #1b9ef0;
+    }
+  }
+}
+
+// ツイッターログインボタン
+
+.sns-login {
+  padding-top: 5px;
+}
+
+.btn-twitter {
+  color: #fff;
+  background-color: #1ca1f3;
+  font-size: 0.9rem;
+  &:hover {
+    background-color: #288fd4;
+    color: #fff;
+  }
+}
+
+.btn-test {
+  color: #fff;
+  background-color: #3a3a3a;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  &:hover {
+    background-color: #585858;
+    color: #fff;
+  }
+}
+
+//検索フォーム
+
+.nav-form {
+  @include background(none, 2px, #e0e4e7, 7px);
+  padding: 5px;
+}
+
+.search-btn {
+  background-color: #fff;
+}
+
+// home/index
+
 .jumbotron {
-  background-image: url("header.jpg");
+  background: url("header.jpg") center no-repeat;
   background-size: cover;
 }
 
 .jumbotron-extend {
-  position: relative;
-  height: 70vh;
-  min-height: 200px;
-  display: flex;
-  justify-content: center;
   align-items: center;
+  display: flex;
+  height: 70vh;
+  justify-content: center;
+  min-height: 200px;
+  position: relative;
 }
 
 .home-header {
   text-align: center;
   h1 {
     color: #ffffff;
-    font-size: 2.5rem;
-    font-weight: 700;
+    font-size: 2rem;
+    font-weight: 800;
     margin-bottom: 20px;
   }
   p {
-    color: rgb(196, 196, 196);
+    color: rgb(255, 255, 255);
+    font-size: 1rem;
+    margin-bottom: 7px;
   }
   .home-button-wrapper {
-    margin: 20px;
+    margin: 0;
+    a {
+      background-color: #fff;
+      border: 2px solid #129bf0;
+      border-radius: 7px;
+      color: #1b9ef0;
+      padding: 7px 15px;
+      &:hover {
+        background-color: rgba(240, 240, 240, 0.253);
+      }
+    }
   }
   .home-separator {
     color: #fff;
     margin: 5px 0;
-  }
-  .home-button {
-    border: 2px solid #1b9ef0;
-    border-radius: 7px;
-    color: #1b9ef0;
-    padding: 7px 15px;
-    &:hover {
-      background-color: rgba(240, 240, 240, 0.253);
-    }
   }
 }
 
@@ -125,13 +179,20 @@ footer {
   padding: 10px 20px;
 }
 
+.tag-title {
+  border-left: 4px solid #0075cf;
+  color: $default-color;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding: 10px 20px;
+}
+
 .tag-cloud {
   @include background;
   padding: 10px 20px;
   a {
-    background-color: #eeeeee;
-    border: 1px;
-    border-radius: 5px;
+    @include background(#eee, 1px, none, 5px);
     color: $link-color;
     display: inline-block;
     font-size: 0.9rem;
@@ -146,41 +207,7 @@ footer {
   }
 }
 
-.tag-title {
-  border-left: 4px solid #0075cf;
-  color: $default-color;
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  padding: 10px 20px;
-}
-
-// pagination
-.pagination {
-  .page-link {
-    color: #1b9ef0;
-  }
-  .page-item.active {
-    .page-link {
-      background-color: #1b9ef0;
-      border-color: #1b9ef0;
-    }
-  }
-}
-
-//navbar
-
-.btn-search {
-  background-color: #fff;
-}
-
-.nav-form {
-  border: solid 2px #e0e4e7;
-  border-radius: 7px;
-  padding: 5px;
-}
-
-// user
+// user全般
 
 .user-wrapper {
   @include background;
@@ -190,7 +217,7 @@ footer {
   padding: 30px;
 }
 
-// user&session new
+// user/registration/new & user/session/new
 
 .user-new-title {
   font-size: 2rem;
@@ -199,30 +226,39 @@ footer {
   margin: 20px 0px;
 }
 
-.sns-login {
-  padding-top: 10px;
+.user-new-text {
+  color: $soft;
+  font-size: 0.9rem;
+  line-height: 1.2;
 }
 
-.btn-twitter {
-  color: #fff;
-  background-color: #1ca1f3;
-  &:hover {
-    background-color: #288fd4;
-    color: #fff;
-  }
-}
+// user/edit
 
-// user edit
 .user-edit-wrapper {
   @include background;
   color: $default-color;
-  margin-top: 45px;
   margin-bottom: 45px;
+  margin-top: 45px;
   padding: 30px;
+  .user-edit-title {
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    a {
+      color: #555555;
+      font-size: 1.6rem;
+      font-weight: 500;
+    }
+  }
 }
 
 .user-edit-image-circle {
   @include circle;
+}
+
+.user-edit-label {
+  color: $default-color;
+  font-size: 0.95rem;
+  font-weight: 600;
 }
 
 .count-default {
@@ -235,42 +271,34 @@ footer {
   font-size: 0.8rem;
 }
 
-.user-edit-title {
-  margin-bottom: 20px;
-  font-size: 1.4rem;
-  a {
-    color: #555555;
-    font-size: 1.6rem;
-    font-weight: 500;
+.btn-destroy {
+  color: #fff;
+  background-color: #c43c33;
+  font-size: 1rem;
+  &:hover {
+    background-color: #ce6355;
+    color: #fff;
   }
 }
-
-.user-edit-label {
-  color: $default-color;
-  font-size: 0.95rem;
-  font-weight: 600;
-}
-
-.user-destroy-button {
-  font-size: 1.5rem;
-}
-
 //user show
+
 .user-show-aside {
   @include background;
   color: $default-color;
 }
 
-.show-profile-image-circle {
-  @include circle;
-  margin-top: 1rem;
-  width: 100%;
+.user-show-image {
+  img {
+    @include circle;
+    margin-top: 1rem;
+    width: 100%;
+  }
 }
 
 .user-show-name {
   font-size: 1.2rem;
   font-weight: 700;
-  padding: 0.6rem 0;
+  padding-top: 10px;
 }
 
 .user-show-profile {
@@ -278,10 +306,10 @@ footer {
 }
 
 .user-show-to-edit {
-  color: #555555;
+  color: $soft;
   font-size: 0.8rem;
   &:hover {
-    color: #555555;
+    color: $soft;
   }
 }
 
@@ -315,19 +343,17 @@ footer {
   a {
     color: $light;
     &:hover {
-      color: #1b9ef0;
+      color: $main;
     }
   }
   .nav-link.active {
-    border-bottom: 3px solid #1b9ef0;
-    color: #1b9ef0;
+    border-bottom: 3px solid $main;
+    color: $main;
   }
 }
 
 .my-tab-content {
-  background-color: #fff;
-  border: solid hsl(206, 13%, 89%);
-  border-radius: 2px;
+  @include background($bColor: hsl(206, 13%, 89%));
   border-width: 0px 1px 1px 1px;
   padding: 0;
 }
@@ -335,11 +361,11 @@ footer {
 // _user
 
 .user-media {
-  padding: 0 20px;
   color: $default-color;
+  padding: 0 20px;
   hr {
-    margin-top: 0.5rem;
     margin-bottom: 1rem;
+    margin-top: 0.5rem;
   }
 }
 
@@ -357,16 +383,26 @@ footer {
   }
 }
 
-.user-media-follow-button {
-  margin: 0;
-  text-align: right;
+.user-media-header {
+  display: flex;
+  width: 100%;
+  a {
+    width: 60%;
+  }
+  form {
+    text-align: right;
+    width: 40%;
+    button {
+      min-width: 92px;
+    }
+  }
 }
 
 // _post
 
 .post-media {
-  padding: 0 20px;
   color: $default-color;
+  padding: 0 20px;
   img {
     margin-top: 0.5rem;
   }
@@ -386,25 +422,24 @@ footer {
     color: $light;
     font-size: 0.8rem;
   }
-}
-
-.post-media-title {
-  color: $default-color;
-  font-size: 1.05rem;
-  font-weight: 700;
-  &:visited {
-    color: $visited-color;
-  }
-  &:hover {
+  .post-media-title {
     color: $default-color;
+    font-size: 1.05rem;
     font-weight: 700;
+    &:visited {
+      color: $visited-color;
+    }
+    &:hover {
+      color: $default-color;
+      font-weight: 700;
+    }
   }
 }
 
 .post-index-tag {
-  margin: 0;
   color: $light;
   font-size: 0.8rem;
+  margin: 0;
   a {
     background-color: #eeeeee;
     border: 1px;
@@ -422,13 +457,13 @@ footer {
 //post new edit
 
 .post-new-edit-title {
-  margin: 30px 0;
   font-size: 2rem;
+  margin: 30px 0;
 }
 
 .post-new-edit-label {
-  margin-top: 20px;
   font-weight: 600;
+  margin-top: 20px;
 }
 
 // post show
@@ -451,11 +486,9 @@ footer {
 
 .post-show-title {
   margin-top: 10px;
-  h1 {
-    font-size: 3.5rem;
-    font-weight: 700;
-    font-feature-settings: "palt";
-  }
+  font-size: 3.5rem;
+  font-weight: 700;
+  font-feature-settings: "palt";
 }
 
 .post-show-tag {
@@ -478,33 +511,13 @@ footer {
 
 .post-show-content {
   margin-bottom: 70px;
-  h1 {
+  h2 {
     border-bottom: 5px solid #cecfcf94;
     font-size: 2rem;
     font-feature-settings: "palt";
     font-weight: 700;
     line-height: 1.5;
     margin: 80px 0 20px 0;
-  }
-}
-
-.good-button {
-  border: 2px solid #2294f1;
-  color: #2294f1;
-  &:hover {
-    background-color: rgb(238, 238, 238);
-    color: #2294f1;
-  }
-}
-
-.good-button-now {
-  background-color: #2294f1;
-  border: 2px solid #2294f1;
-  color: #fff;
-  &:hover {
-    background-color: #66ade7;
-    border-color: #66ade7;
-    color: #fff;
   }
 }
 
@@ -544,7 +557,9 @@ footer {
   hr {
     margin: 20px 0;
   }
-
+  img {
+    @include circle;
+  }
   .comment-destroy {
     color: $light;
     margin-right: 4px;
@@ -597,16 +612,38 @@ footer {
 
 .post-show-comment-form-header {
   background-color: #1b9ef0;
-  color: #fff;
   padding: 10px;
+  p {
+    color: #fff;
+    display: inline-block;
+    font-weight: 600;
+    margin: 0;
+  }
 }
 
-.post-show-comment-label {
-  display: inline-block;
-  font-weight: 600;
+// _favorite_button
+
+.good-button {
+  border: 2px solid #2294f1;
+  color: #2294f1;
+  &:hover {
+    background-color: rgb(238, 238, 238);
+    color: #2294f1;
+  }
 }
 
-// liking
+.good-button-now {
+  background-color: #2294f1;
+  border: 2px solid #2294f1;
+  color: #fff;
+  &:hover {
+    background-color: #66ade7;
+    border-color: #66ade7;
+    color: #fff;
+  }
+}
+
+// お気に入り投稿 user/likes
 .likes-wrapper {
   @include background;
   padding: 20px 10px;
@@ -646,9 +683,9 @@ footer {
 
 // sharelink
 .twitter {
-  color: #fff;
   background-color: #1ca1f3;
   border-radius: 2px;
+  color: #fff;
   padding: 3px 5px;
   &:hover {
     background-color: #288fd4;
@@ -658,9 +695,9 @@ footer {
 }
 
 .facebook {
-  color: #fff;
   background-color: #3b5999;
   border-radius: 2px;
+  color: #fff;
   padding: 3px 5px;
   &:hover {
     background-color: #263f74;
@@ -670,9 +707,9 @@ footer {
 }
 
 .line {
-  color: #fff;
   background-color: #1dcd00;
   border-radius: 2px;
+  color: #fff;
   padding: 3px 5px;
   &:hover {
     background-color: #17af00;
