@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     get 'sign_out', to: 'users/sessions#destroy'
   end
 
-  resources :users, only: [:index,:show] do
+  resources :users, only: %i[index show] do
     member do
       get :likes
     end

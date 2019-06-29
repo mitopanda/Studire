@@ -99,6 +99,17 @@ footer {
   }
 }
 
+.btn-test {
+  color: #fff;
+  background-color: #3a3a3a;
+  font-size: 1rem;
+  margin-top: 10px;
+  &:hover {
+    background-color: #585858;
+    color: #fff;
+  }
+}
+
 //検索フォーム
 
 .nav-form {
@@ -251,10 +262,15 @@ footer {
   font-size: 0.8rem;
 }
 
-.user-destroy-button {
-  font-size: 1.5rem;
+.btn-destroy {
+  color: #fff;
+  background-color: #c43c33;
+  font-size: 1rem;
+  &:hover {
+    background-color: #ce6355;
+    color: #fff;
+  }
 }
-
 //user show
 
 .user-show-aside {
