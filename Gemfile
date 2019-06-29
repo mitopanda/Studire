@@ -36,21 +36,42 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+# 追加gem
+gem 'acts-as-taggable-on'
+gem 'bootstrap', '~> 4.3.1'
+gem 'cancancan'
+gem 'carrierwave'
+gem 'devise'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
+gem 'dotenv-rails'
+gem 'fog-aws'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'kaminari'
+gem 'mini_magick'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'rails-i18n'
+gem 'rails_admin'
+gem 'rails_autolink'
+gem 'ransack'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'factory_bot_rails'
   gem 'rspec-rails'
-  gem "factory_bot_rails"
 end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'spring-commands-rspec'
+  gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
 group :test do
@@ -62,31 +83,4 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-#追加gem
-gem 'kaminari'
-
-gem 'bootstrap', '~> 4.3.1'
-gem 'jquery-rails'
-
-gem 'rails-i18n'
-
-gem 'carrierwave'
-gem 'mini_magick'
-
-gem 'acts-as-taggable-on'
-gem 'ransack'
-
-gem 'devise'
-gem 'devise-i18n'
-gem 'devise-i18n-views'
-gem 'omniauth'
-gem 'omniauth-twitter'
-gem 'dotenv-rails'
-
-gem 'jquery-ui-rails'
-gem 'rails_autolink'
-gem 'cancancan'
-gem 'rails_admin'
-gem 'fog-aws'
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
