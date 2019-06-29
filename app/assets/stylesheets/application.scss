@@ -86,7 +86,7 @@ footer {
 // ツイッターログインボタン
 
 .sns-login {
-  padding-top: 10px;
+  padding-top: 5px;
 }
 
 .btn-twitter {
@@ -124,7 +124,7 @@ footer {
 // home/index
 
 .jumbotron {
-  background-image: url("header.jpg");
+  background: url("header.jpg") center no-repeat;
   background-size: cover;
 }
 
@@ -140,17 +140,20 @@ footer {
 .home-header {
   text-align: center;
   h1 {
-    color: #fff;
-    font-size: 2.5rem;
-    font-weight: 700;
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: 800;
     margin-bottom: 20px;
   }
   p {
-    color: rgb(231, 231, 231);
+    color: rgb(255, 255, 255);
+    font-size: 1rem;
+    margin-bottom: 7px;
   }
   .home-button-wrapper {
-    margin: 20px;
+    margin: 0;
     a {
+      background-color: #fff;
       border: 2px solid #129bf0;
       border-radius: 7px;
       color: #1b9ef0;
