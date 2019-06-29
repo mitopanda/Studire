@@ -27,3 +27,9 @@
 /config/master.key
 
 /.env
+
+/.vscode
+
+/.rubocop.yml
+
+/.rubocop_todo.yml
