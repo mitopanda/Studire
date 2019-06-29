@@ -15,7 +15,7 @@ class ImagesUploader < CarrierWave::Uploader::Base
   end
 
   def extension_whitelist
-    %w(jpg jpeg gif png)
+    %w[jpg jpeg gif png]
   end
 
   def filename
@@ -53,14 +53,15 @@ class ImagesUploader < CarrierWave::Uploader::Base
   #   "something.jpg" if original_filename
   # end
   def default_url
-    "default.png"
+    'default.png'
   end
 
   process resize_to_fill: [200, 200]
 
   protected
+
   def secure_token(length = 16)
     var = :"@#{mounted_as}_secure_token"
-    model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.hex(length/2))
+    model.instance_variable_get(var) || model.instance_variable_set(var, SecureRandom.hex(length / 2))
   end
 end
