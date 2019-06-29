@@ -45,7 +45,7 @@ body {
 
 p {
   color: $default-color;
-  line-height: 2;
+  line-height: 1.8;
 }
 
 footer {
@@ -92,7 +92,7 @@ footer {
 .btn-twitter {
   color: #fff;
   background-color: #1ca1f3;
-  font-size: 1rem;
+  font-size: 0.9rem;
   &:hover {
     background-color: #288fd4;
     color: #fff;
@@ -102,7 +102,7 @@ footer {
 .btn-test {
   color: #fff;
   background-color: #3a3a3a;
-  font-size: 1rem;
+  font-size: 0.9rem;
   margin-top: 10px;
   &:hover {
     background-color: #585858;
@@ -224,6 +224,12 @@ footer {
   font-weight: 500;
   letter-spacing: 1px;
   margin: 20px 0px;
+}
+
+.user-new-text {
+  color: $soft;
+  font-size: 0.9rem;
+  line-height: 1.2;
 }
 
 // user/edit

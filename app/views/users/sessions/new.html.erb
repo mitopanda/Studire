@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="col-xs-10 offset-xs-1 col-md-6 offset-md-3 col-lg-4 offset-lg-4 user-wrapper">
+  <div class="col-xs-12 offset-md-3 col-lg-4 offset-lg-4 user-wrapper">
     <div class="text-center user-new-title">Studireにログイン</div>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field form-group">
@@ -18,14 +18,13 @@
       <%= f.submit "ログイン", class: "btn btn-outline-primary w-100 mb-2" %>
     </div>
     <% end %>
-    <div>
-      <p>アカウントをお持ちでない方は
-        <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-        <%= link_to "新規登録", new_registration_path(resource_name) %>
-        <% end %>
-        からお願いいたします。
-      </p>
-    </div>
+    <p class="user-new-text">アカウントをお持ちでない方は
+      <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+      <%= link_to "新規登録", new_registration_path(resource_name) %>
+      <% end %>
+      からお願いいたします。
+    </p>
+
     <hr>
     <div class="sns-login">
       <%= link_to user_twitter_omniauth_authorize_path, class: 'btn btn-lg btn-twitter w-100' do %>

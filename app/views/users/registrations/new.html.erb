@@ -1,31 +1,29 @@
 <div class="container">
-  <div class="col-xs-10 offset-xs-1 col-md-6 offset-md-3 col-lg-4 offset-lg-4 user-wrapper">
+  <div class="col-xs-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4 user-wrapper">
     <div class="text-center user-new-title">Studireを始めよう！</div>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
-      <div class="field form-group">
-        <%= f.text_field :name, class: 'form-control', id: "name", placeholder: 'ユーザ名' %>
-      </div>
-      <div class="field form-group">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email",class: "form-control", id: 'email', placeholder: 'メールアドレス' %>
-      </div>
-      <div class="field form-group">
-        <%= f.password_field :password, autocomplete: "new-password", class: 'form-control', id: "password", placeholder: 'パスワード(8文字以上)' %>
-      </div>
-      <div class="field form-group">
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control', id: 'password_confirmation', placeholder: 'パスワードの確認' %>
-      </div>
-      <div>
-        <%= f.submit "会員登録", class: "btn btn-outline-primary btn-block mb-2" %>
-      </div>
-    <% end %>
-    <div>
-      <p>すでにアカウントをお持ちの方はこちらから
-        <%- if controller_name != 'sessions' %>
-        <%= link_to "ログイン", new_session_path(resource_name) %>
-        <% end %>
-        してください。</p>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="field form-group">
+      <%= f.text_field :name, class: 'form-control', id: "name", placeholder: 'ユーザ名' %>
     </div>
+    <div class="field form-group">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email",class: "form-control", id: 'email', placeholder: 'メールアドレス' %>
+    </div>
+    <div class="field form-group">
+      <%= f.password_field :password, autocomplete: "new-password", class: 'form-control', id: "password", placeholder: 'パスワード(8文字以上)' %>
+    </div>
+    <div class="field form-group">
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control', id: 'password_confirmation', placeholder: 'パスワードの確認' %>
+    </div>
+    <div>
+      <%= f.submit "会員登録", class: "btn btn-outline-primary btn-block mb-2" %>
+    </div>
+    <% end %>
+    <p class="user-new-text">すでにアカウントをお持ちの方はこちらから
+      <%- if controller_name != 'sessions' %>
+      <%= link_to "ログイン", new_session_path(resource_name) %>
+      <% end %>
+      してください。</p>
     <hr>
     <div class="sns-login">
       <%= link_to user_twitter_omniauth_authorize_path, class: 'btn btn-lg btn-twitter w-100' do %>
