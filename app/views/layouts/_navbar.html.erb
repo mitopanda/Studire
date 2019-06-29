@@ -9,15 +9,17 @@
       <ul class="navbar-nav ml-auto mr-4">
         <% if user_signed_in? %>
         <%= form_tag(root_path,method: :get, enforce_utf8: false, class: 'form-inline mr-sm-2 ')  do %>
-          <%= text_field_tag :q, params[:q], placeholder: '検索するテキストを入力...', class: "nav-form mr-1" %>
-          <%= button_tag type: 'submit', name: nil, class: 'btn search-btn' do %>
-          <i class="fas fa-search"></i>
-          <% end %>
+        <%= text_field_tag :q, params[:q], placeholder: '検索するテキストを入力...', class: "nav-form mr-1" %>
+        <%= button_tag type: 'submit', name: nil, class: 'btn search-btn' do %>
+        <i class="fas fa-search"></i>
+        <% end %>
         <% end %>
         <li class="nav-item active"><%= link_to root_path, class: 'nav-link' do %><i class="fas fa-home"></i>
           HOME<% end %></li>
         <li class="nav-item active"><%= link_to new_post_path, class: 'nav-link' do %><i class="fas fa-pen"></i>
           記事の投稿<% end %></li>
+        <li class="nav-item active"><%= link_to users_path, class: 'nav-link' do %><i class="fas fa-users"></i>
+          ユーザ一覧<% end %></li>
         <li class="nav-item active"><%= link_to likes_user_path(current_user), class: 'nav-link' do %><i
             class="fas fa-thumbs-up"></i> いいね一覧<% end %></li>
         <li class="nav-item dropdown">

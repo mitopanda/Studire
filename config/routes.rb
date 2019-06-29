@@ -8,14 +8,13 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
-  get '/users', to: redirect('/users/sign_up')
 
   devise_scope :user do
     get 'sign_in', to: 'users/sessions#new'
     get 'sign_out', to: 'users/sessions#destroy'
   end
 
-  resources :users, only: [:show] do
+  resources :users, only: [:index,:show] do
     member do
       get :likes
     end

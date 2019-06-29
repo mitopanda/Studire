@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-8 offset-md-2 mt-4 mb-4">
+      <%= form_tag(users_path,method: :get, enforce_utf8: false, class: 'form-inline mr-sm-2 mt-4')  do %>
+      <%= text_field_tag :q, params[:q], placeholder: 'ユーザ名またはプロフィール', class: "nav-form mr-1" %>
+      <%= button_tag type: 'submit', name: nil, class: 'btn search-btn' do %>
+      <i class="fas fa-search"></i>
+      <% end %>
+      <% end %>
+      <div class="likes-wrapper mt-4">
+        <%= render 'users', users: @users %>
+      </div>
+    </div>
+  </div>
+</div>
