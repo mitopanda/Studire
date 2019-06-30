@@ -33,7 +33,7 @@ url: https://studire.com
 
 ECRにプッシュした本番環境用のイメージを用いて、ECSのEC2インスタンスタイプでデプロイしています。できる限り無料枠で収めたかったためForgateタイプの採用は見送っています。  
 データベースにはRDSforPostgreSQLを用いています。  
-画像は全てS3に保存し、CloudFrontでCDN配信を行っています。asset_syncと言うgemを用いて、app/assets以下の画像も全てCDN配信を行っています。  
+画像は全てS3に保存し、CloudFrontでCDN配信を行っています。gemのasset_syncを用いて、app/assets以下の画像も全てCDN配信を行っています。  
 ALBを用いてhttp通信ををhttpsに全てリダイレクトすることで常時SSL化を実装しています。  
 
 # 開発環境
