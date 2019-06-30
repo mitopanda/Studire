@@ -38,6 +38,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # 追加gem
 gem 'acts-as-taggable-on'
+gem 'asset_sync'
 gem 'bootstrap', '~> 4.3.1'
 gem 'cancancan'
 gem 'carrierwave'
