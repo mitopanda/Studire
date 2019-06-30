@@ -64,7 +64,7 @@
           class="fas fa-trash-alt"></i> 削除<% end %>
         <% end %>
         <div class="post-comment-content">
-          <%= simple_format(comment.content) %>
+          <%= auto_link(simple_format(comment.content), html: {target: '_blank'}) %>
         </div>
       </div>
       <% end %>
@@ -81,8 +81,8 @@
           <p><i class="far fa-comment"></i>コメントする</p>
         </div>
         <%= form_for [@post, @comment] do |f| %>
-          <%= f.text_area :content, class: 'form-control', rows: '5', id: 'comment', placeholder: 'コメントを入力してください。' %>
-          <%= f.submit '投稿', class: 'btn btn-outline-primary btn-block' %>
+        <%= f.text_area :content, class: 'form-control', rows: '5', id: 'comment', placeholder: 'コメントを入力してください。' %>
+        <%= f.submit '投稿', class: 'btn btn-outline-primary btn-block' %>
         <% end %>
       </div>
     </div>
