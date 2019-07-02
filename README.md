@@ -31,8 +31,8 @@ url: https://studire.com
 # 本番環境
 ![AWS-Page-1](https://user-images.githubusercontent.com/50113713/60399151-5e8c4d00-9b9b-11e9-93a3-8881f5181030.png)
 
-ECRにプッシュした本番環境用のイメージを用いて、ECSのEC2インスタンスタイプでデプロイしています。できる限り無料枠で収めたかったためForgateタイプの採用は見送っています。  
-データベースにはRDSforPostgreSQLを用いています。  
+ECRにプッシュした本番環境用のイメージを用いて、ECSのEC2インスタンスタイプでデプロイしています。できる限り無料枠で収めたかったためFargateタイプの採用は見送っています。  
+データベースにはRDS for PostgreSQLを用いています。  
 画像は全てS3に保存し、CloudFrontでCDN配信を行っています。gemのasset_syncを用いて、app/assets以下の画像も全てCDN配信を行っています。  
 ALBを用いてhttp通信ををhttpsに全てリダイレクトすることで常時SSL化を実装しています。  
 
