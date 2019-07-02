@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
     @posts = @q.result.page(params[:page])
     @like_counts = Favorite.group(:post_id).order('count_post_id DESC').count(:post_id).keys
     @like_count_posts_array = @like_counts.map { |id| Post.find(id) }
-    @like_posts = Post.where(id: @like_count_posts_array.map(&:id)) # ActiveRecord::Relationに戻す
+    @like_posts = Post.where(id: @like_count_posts_array.map(&:id))
     @liking = @like_posts.ransack(query).result.page(params[:page]).per(15)
   end
 end

@@ -9,10 +9,8 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :comments
 
-  # carrierwave
   mount_uploader :image, ImagesUploader
 
-  # relationships
   has_many :relationships, dependent: :destroy
   has_many :followings, through: :relationships, source: :follow
   has_many :reverses_of_relationship, class_name: 'Relationship', foreign_key: 'follow_id', dependent: :destroy
@@ -31,7 +29,6 @@ class User < ApplicationRecord
     followings.include?(other_user)
   end
 
-  # favorites
   has_many :favorites, dependent: :destroy
   has_many :liked_posts, through: :favorites, source: :post
 

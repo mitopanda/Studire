@@ -20,7 +20,6 @@ module Studire
 
     config.time_zone = 'Tokyo'
 
-    # rspec
     config.generators do |g|
       g.test_framework :rspec,
                        view_specs: false,

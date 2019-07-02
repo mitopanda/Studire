@@ -8,7 +8,7 @@
           <span class="text-muted post-index-date mr-4">投稿日<%= @post.created_at.strftime("%Y/%m/%d") %></span>
           <% if current_user == @post.user %>
           <%= link_to edit_post_path(@post), class: 'post-edit-destroy' do %><i class="fas fa-edit"></i> 編集<% end %>
-          <%= link_to @post, method: :delete, data: { confirm: "You sure?" }, class: 'post-edit-destroy' do %><i
+          <%= link_to @post, method: :delete, data: { confirm: "本当に削除しますか？" }, class: 'post-edit-destroy' do %><i
             class="fas fa-trash-alt"></i> 削除<% end %>
           <% end %>
         </div>
@@ -60,7 +60,7 @@
         <%= link_to comment.user.name, user_path(comment.user) %>
         <span class="text-muted">投稿日<%= comment.created_at.strftime("%Y-%m-%d %H:%M") %></span>
         <% if comment.user_id == current_user.id %>
-        <%= link_to post_comment_path(@post, comment), method: :delete, data: { confirm: "You sure?" }, class: 'comment-destroy' do %><i
+        <%= link_to post_comment_path(@post, comment), method: :delete, data: { confirm: "本当に削除しますか？" }, class: 'comment-destroy' do %><i
           class="fas fa-trash-alt"></i> 削除<% end %>
         <% end %>
         <div class="post-comment-content">
@@ -81,8 +81,8 @@
           <p><i class="far fa-comment"></i>コメントする</p>
         </div>
         <%= form_for [@post, @comment] do |f| %>
-          <%= f.text_area :content, class: 'form-control', rows: '5', id: 'comment', placeholder: 'コメントを入力してください。' %>
-          <%= f.submit '投稿', class: 'btn btn-outline-primary btn-block' %>
+        <%= f.text_area :content, class: 'form-control', rows: '5', id: 'comment', placeholder: 'コメントを入力してください。' %>
+        <%= f.submit '投稿', class: 'btn btn-outline-primary btn-block' %>
         <% end %>
       </div>
     </div>

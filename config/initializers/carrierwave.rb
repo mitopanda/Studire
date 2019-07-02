@@ -12,7 +12,7 @@ CarrierWave.configure do |config|
       aws_access_key_id: Rails.application.credentials.aws[:access_key],
       aws_secret_access_key: Rails.application.credentials.aws[:secret_key],
       region: Rails.application.credentials.aws[:region],
-      path_style: true
+      path_style: true,
     }
     config.asset_host = 'https://cdn.studire.com'
   else
