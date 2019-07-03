@@ -89,7 +89,7 @@ describe 'ポスト機能', type: :system, js: true do
     it '正常に削除される' do
       expect do
         click_link '削除'
-        page.accept_confirm 'You sure?'
+        page.accept_confirm '本当に削除しますか？'
         expect(page).to have_content '投稿を削除しました'
       end.to change(@user.posts, :count).by(-1)
     end

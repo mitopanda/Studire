@@ -41,8 +41,8 @@ Capybara.register_driver :selenium_remote do |app|
           'window-size=500,500',
           'headless',
           '--no-sandbox',
-          '--disable-dev-shm-usage' # crush回避
-        ]
+          '--disable-dev-shm-usage',
+        ],
       }
     ),
     url: ENV.fetch('SELENIUM_URL') { 'http://chrome:4444/wd/hub' }
