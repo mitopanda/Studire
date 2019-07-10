@@ -1,5 +1,5 @@
 # Studire(スタディレ)
-自分が学んだことと学習方法を記載し、学びのテンプレートを作成するサービスです。  
+自分が学んだこと、その学習方法を記載し、学びのテンプレートを作成するサービスです。  
 url: https://studire.com  
 ログイン画面に登録不要で見れる閲覧用のテストユーザログインボタンを用意しています。  
 ![スクリーンショット 2019-07-01 0 39 31](https://user-images.githubusercontent.com/50113713/60398931-bbd2cf00-9b98-11e9-84fb-954d3fb43122.png)
@@ -11,7 +11,7 @@ url: https://studire.com
 - PostgreSQL 11.2
 - SCSS
 - bootstrap
-- jQuery(少しの使用となっています)
+- jQuery(少量)
 - Docker
 - docker-compose
 - AWS
