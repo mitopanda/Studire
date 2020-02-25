@@ -189,7 +189,7 @@ GEM
     multi_json (1.13.1)
     nested_form (0.3.2)
     nio4r (2.3.1)
-    nokogiri (1.10.3)
+    nokogiri (1.10.8)
       mini_portile2 (~> 2.4.0)
     oauth (0.5.4)
     omniauth (1.9.0)
